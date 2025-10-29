@@ -1,0 +1,15 @@
+[project]
+name = "deep-learning-assignment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "notebook>=7.4.7",
+    "pytorch-lightning>=2.5.5",
+    "seaborn>=0.13.2",
+    "torch>=2.9.0",
+    "torchmetrics>=1.8.2",
+    "torchvision>=0.24.0",
+]
