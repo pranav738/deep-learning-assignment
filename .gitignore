@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+scripts
+data/images
+data/images_originals
+context.md

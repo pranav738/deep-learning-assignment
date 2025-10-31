@@ -1,0 +1,10 @@
+travel_backpack
+stationery_calculator
+electronics_keyboard
+electronics_mouse
+tableware_mug
+stationery_notebook
+tools_screwdriver
+footwear_sneakers
+tableware_waterbottle
+clothing_wristwatch
