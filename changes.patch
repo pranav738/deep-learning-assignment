@@ -1,0 +1,757 @@
+diff --git a/.gitignore b/.gitignore
+index e58bcdf..0f8efc4 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -18,4 +18,5 @@ model_structure.md
+ train_2heads_methodology.md
+ current_status.md
+ added_text_head.md
+-checkpoints/*
+\ No newline at end of file
++checkpoints/*
++metrics_history.json
+diff --git a/runs.json b/runs.json
+new file mode 100644
+index 0000000..5c8628a
+--- /dev/null
++++ b/runs.json
+@@ -0,0 +1,717 @@
++[
++  {
++    "run_id": "2025-11-02T15:25:48",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.0001,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "deit_tiny_patch16_224",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 0.6214053338269393,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.9998888969421387,
++        "attribute_f1": 0.8499194979667664,
++        "retrieval_loss": 0.5904597674889697,
++        "retrieval_mrr": 0.7941111289130317,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 5.10907460530599,
++        "classification_accuracy": 0.95333331823349,
++        "classification_f1": 0.9528661370277405,
++        "attribute_accuracy": 0.9003333449363708,
++        "attribute_f1": 0.43174421787261963,
++        "retrieval_loss": 2.556047534942627,
++        "retrieval_mrr": 0.35747978210449216,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T15:28:34",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.0001,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "deit_tiny_patch16_224",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 0.1,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 0.08329801266392071,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 1.0,
++        "attribute_f1": 0.8500000238418579,
++        "retrieval_loss": 0.5940878448024806,
++        "retrieval_mrr": 0.7941111289130317,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 3.027521521250407,
++        "classification_accuracy": 0.9333333373069763,
++        "classification_f1": 0.9326885342597961,
++        "attribute_accuracy": 0.902999997138977,
++        "attribute_f1": 0.440421998500824,
++        "retrieval_loss": 2.4847842534383138,
++        "retrieval_mrr": 0.3636493301391602,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T15:30:30",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0001,
++      "weight_decay": 0.0001,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "deit_tiny_patch16_224",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 0.1,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 0.11521342602041032,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.9998888969421387,
++        "attribute_f1": 0.8499192595481873,
++        "retrieval_loss": 0.6123204119989856,
++        "retrieval_mrr": 0.7941111289130317,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 2.514926675160726,
++        "classification_accuracy": 0.9599999785423279,
++        "classification_f1": 0.9595924615859985,
++        "attribute_accuracy": 0.8913333415985107,
++        "attribute_f1": 0.41086846590042114,
++        "retrieval_loss": 2.446202964782715,
++        "retrieval_mrr": 0.3614858945210775,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T15:31:55",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0001,
++      "weight_decay": 0.0001,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "deit_tiny_patch16_224",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 2.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 0.1,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 0.14503993226422204,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 1.0,
++        "attribute_f1": 0.8500000238418579,
++        "retrieval_loss": 0.6118290455277181,
++        "retrieval_mrr": 0.7941111289130317,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 4.549335250854492,
++        "classification_accuracy": 0.9733333587646484,
++        "classification_f1": 0.9730886220932007,
++        "attribute_accuracy": 0.8913333415985107,
++        "attribute_f1": 0.39506497979164124,
++        "retrieval_loss": 2.4222425651550292,
++        "retrieval_mrr": 0.35535343805948894,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T15:33:34",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 5e-05,
++      "weight_decay": 0.0001,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "deit_tiny_patch16_224",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 0.1,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 0.15815534975793627,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.9991111159324646,
++        "attribute_f1": 0.8493102788925171,
++        "retrieval_loss": 0.6649342994764447,
++        "retrieval_mrr": 0.7941111289130317,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 2.249661299387614,
++        "classification_accuracy": 0.9466666579246521,
++        "classification_f1": 0.9460797309875488,
++        "attribute_accuracy": 0.8700000047683716,
++        "attribute_f1": 0.35724467039108276,
++        "retrieval_loss": 2.4565841293334962,
++        "retrieval_mrr": 0.3535607655843099,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T16:47:16",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0001,
++      "weight_decay": 0.05,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "tiny_vit_21m_224.dist_in22k_ft_in1k",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 2.509834129545424,
++        "classification_accuracy": 0.9933333396911621,
++        "classification_f1": 0.9933330416679382,
++        "attribute_accuracy": 0.7218888998031616,
++        "attribute_f1": 0.33401691913604736,
++        "retrieval_loss": 0.7794945300350729,
++        "retrieval_mrr": 0.796703715854221,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 4.307138951619466,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.6976666450500488,
++        "attribute_f1": 0.27883753180503845,
++        "retrieval_loss": 2.3188100624084473,
++        "retrieval_mrr": 0.3612033843994141,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T16:49:18",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.05,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "tiny_vit_21m_224.dist_in22k_ft_in1k",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 1.1037066894107395,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.8852221965789795,
++        "attribute_f1": 0.5075821280479431,
++        "retrieval_loss": 0.590654640330049,
++        "retrieval_mrr": 0.8009629737006293,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 3.4049829483032226,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.8333333134651184,
++        "attribute_f1": 0.3722221255302429,
++        "retrieval_loss": 2.2312043126424155,
++        "retrieval_mrr": 0.37595447540283206,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T16:51:32",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.01,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "tiny_vit_21m_224.dist_in22k_ft_in1k",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 1.0884022659725614,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.8892222046852112,
++        "attribute_f1": 0.5141832232475281,
++        "retrieval_loss": 0.5904224297734648,
++        "retrieval_mrr": 0.8009629737006293,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 3.445776430765788,
++        "classification_accuracy": 0.9933333396911621,
++        "classification_f1": 0.99332594871521,
++        "attribute_accuracy": 0.8349999785423279,
++        "attribute_f1": 0.3761012554168701,
++        "retrieval_loss": 2.241078764597575,
++        "retrieval_mrr": 0.37335296630859377,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T16:55:48",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.05,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "tiny_vit_21m_224.dist_in22k_ft_in1k",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 2.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 1.365633307562934,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.9207777976989746,
++        "attribute_f1": 0.587455153465271,
++        "retrieval_loss": 0.5875196556249992,
++        "retrieval_mrr": 0.8009629737006293,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 4.76285717010498,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.8583333492279053,
++        "attribute_f1": 0.4055692255496979,
++        "retrieval_loss": 2.243372980753581,
++        "retrieval_mrr": 0.37876993815104165,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T16:58:05",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.01,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "tiny_vit_21m_224.dist_in22k_ft_in1k",
++      "freeze_backbone_epochs": 5,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 2.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 1.344563537173801,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.9217777848243713,
++        "attribute_f1": 0.5906543135643005,
++        "retrieval_loss": 0.5866477923922129,
++        "retrieval_mrr": 0.8009629737006293,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 4.757564570109049,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.8526666760444641,
++        "attribute_f1": 0.4000733196735382,
++        "retrieval_loss": 2.2340566953023275,
++        "retrieval_mrr": 0.3877634239196777,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T17:00:11",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.05,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "tiny_vit_21m_224.dist_in22k_ft_in1k",
++      "freeze_backbone_epochs": 2,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 2.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 1.0936796871821086,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.9532222151756287,
++        "attribute_f1": 0.6781709790229797,
++        "retrieval_loss": 0.5796677084763522,
++        "retrieval_mrr": 0.8009629737006293,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 5.181505584716797,
++        "classification_accuracy": 0.9933333396911621,
++        "classification_f1": 0.9933258891105652,
++        "attribute_accuracy": 0.8700000047683716,
++        "attribute_f1": 0.4285816252231598,
++        "retrieval_loss": 2.2629059664408366,
++        "retrieval_mrr": 0.3846457036336263,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T17:02:27",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.05,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "tiny_vit_21m_224.dist_in22k_ft_in1k",
++      "freeze_backbone_epochs": 0,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 2.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 1.0,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 0.9656446356243558,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 0.9670000076293945,
++        "attribute_f1": 0.7192504405975342,
++        "retrieval_loss": 0.5761580689746532,
++        "retrieval_mrr": 0.8009629737006293,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 6.001116053263346,
++        "classification_accuracy": 0.9933333396911621,
++        "classification_f1": 0.99332594871521,
++        "attribute_accuracy": 0.8813333511352539,
++        "attribute_f1": 0.4367390275001526,
++        "retrieval_loss": 2.3180412578582765,
++        "retrieval_mrr": 0.36670522689819335,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  },
++  {
++    "run_id": "2025-11-02T17:05:57",
++    "config": {
++      "project_root": "/home/sasank/deep-learning-assignment",
++      "experiment_tag": "own_dataset",
++      "batch_size": 32,
++      "num_epochs": 25,
++      "learning_rate": 0.0003,
++      "weight_decay": 0.0001,
++      "num_workers": 4,
++      "pin_memory": true,
++      "backbone_name": "deit_tiny_patch16_224",
++      "freeze_backbone_epochs": 2,
++      "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
++      "embedding_dim": 256,
++      "freeze_text_backbone": true,
++      "attr_loss_weight": 1.0,
++      "attr_threshold": 0.5,
++      "grad_clip_norm": 1.0,
++      "retrieval_loss_weight": 0.1,
++      "retrieval_temperature": 0.07,
++      "retrieval_recall_at_k": [],
++      "checkpoint_f1_weights": {
++        "classification": 0.5,
++        "attributes": 0.5
++      },
++      "scheduler": {
++        "type": "cosine",
++        "eta_min": 1e-05
++      },
++      "seed": 1337
++    },
++    "results": {
++      "train": {
++        "loss": 0.07750408497949442,
++        "classification_accuracy": 1.0,
++        "classification_f1": 1.0,
++        "attribute_accuracy": 1.0,
++        "attribute_f1": 0.8500000238418579,
++        "retrieval_loss": 0.5922296911311181,
++        "retrieval_mrr": 0.7941111289130317,
++        "retrieval_recall_at_k": {}
++      },
++      "val": {
++        "loss": 2.974232088724772,
++        "classification_accuracy": 0.95333331823349,
++        "classification_f1": 0.9533184766769409,
++        "attribute_accuracy": 0.9016666412353516,
++        "attribute_f1": 0.43546992540359497,
++        "retrieval_loss": 2.5078920237223308,
++        "retrieval_mrr": 0.35892459869384763,
++        "retrieval_recall_at_k": {}
++      }
++    }
++  }
++]
+\ No newline at end of file
+diff --git a/src/project_dl/train.py b/src/project_dl/train.py
+index 97e5406..7625f2c 100644
+--- a/src/project_dl/train.py
++++ b/src/project_dl/train.py
+@@ -38,14 +38,14 @@ CONFIG: Dict[str, Any] = {
+     "num_workers": 4,
+     "pin_memory": True,
+     "backbone_name": "deit_tiny_patch16_224",
+-    "freeze_backbone_epochs": 5,
++    "freeze_backbone_epochs": 2,
+     "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+     "embedding_dim": 256,
+     "freeze_text_backbone": True,
+     "attr_loss_weight": 1.0,
+     "attr_threshold": 0.5,
+     "grad_clip_norm": 1.0,
+-    "retrieval_loss_weight": 1.0,
++    "retrieval_loss_weight": 0.1,
+     "retrieval_temperature": 0.07,
+     "retrieval_recall_at_k": [],
+     "checkpoint_f1_weights": {
