@@ -71,6 +71,7 @@ class MultiTaskDataset(Dataset):
         self.attr_to_idx, self.idx_to_attr = self._load_attributes(self.attributes_path)
 
         self.samples = self._load_labels(self.labels_path, split)
+        self._attr_positive_counts = self._compute_attribute_counts(len(self.attr_to_idx))
 
         self.transform = transform if transform is not None else _build_default_transforms(split)
 
@@ -117,6 +118,13 @@ class MultiTaskDataset(Dataset):
             raise ValueError(f"No samples found for split='{split}' in {path}")
         return records
 
+    def _compute_attribute_counts(self, num_attributes: int) -> torch.Tensor:
+        counts = torch.zeros(num_attributes, dtype=torch.long)
+        for sample in self.samples:
+            for idx in sample["attr_indices"]:
+                counts[idx] += 1
+        return counts
+
     def __len__(self) -> int:
         return len(self.samples)
 
@@ -153,3 +161,6 @@ class MultiTaskDataset(Dataset):
 
     def attribute_names(self) -> Sequence[str]:
         return tuple(self.idx_to_attr)
+
+    def attribute_positive_counts(self) -> torch.Tensor:
+        return self._attr_positive_counts.clone()

@@ -47,7 +47,7 @@ CONFIG: Dict[str, Any] = {
     "grad_clip_norm": 1.0,
     "retrieval_loss_weight": 1.0,
     "retrieval_temperature": 0.07,
-    "retrieval_recall_at_k": [1, 5],
+    "retrieval_recall_at_k": [],
     "scheduler": {
         "type": "cosine",
         "eta_min": 1e-5,
@@ -404,7 +404,11 @@ def main() -> None:
     scheduler = build_scheduler(optimizer, config)
 
     classification_loss = nn.CrossEntropyLoss()
-    attribute_loss = nn.BCEWithLogitsLoss()
+    train_pos_counts = train_ds.attribute_positive_counts().to(torch.float32)
+    total_train = float(len(train_ds))
+    neg_counts = torch.clamp(total_train - train_pos_counts, min=0.0)
+    pos_weight = torch.where(train_pos_counts > 0, neg_counts / train_pos_counts, torch.ones_like(train_pos_counts))
+    attribute_loss = nn.BCEWithLogitsLoss(pos_weight=pos_weight.to(device))
 
     class_names = train_ds.class_names()
     attribute_names = train_ds.attribute_names()
