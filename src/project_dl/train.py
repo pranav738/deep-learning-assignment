@@ -1,4 +1,4 @@
-"""Training script for classification and attribute heads."""
+"""Training routine for classification, attribute, and text-retrieval heads."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from typing import Any, Dict, Iterable, List, Tuple
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
+import torch.nn.functional as F
 
 from torchmetrics.classification import (
     MulticlassAccuracy,
@@ -28,6 +29,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 CONFIG: Dict[str, Any] = {
     "project_root": PROJECT_ROOT,
+    "experiment_tag": "own_dataset",
+    
     "batch_size": 32,
     "num_epochs": 25,
     "learning_rate": 3e-4,
@@ -36,16 +39,21 @@ CONFIG: Dict[str, Any] = {
     "pin_memory": True,
     "backbone_name": "deit_tiny_patch16_224",
     "freeze_backbone_epochs": 5,
+    "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_dim": 256,
+    "freeze_text_backbone": True,
     "attr_loss_weight": 1.0,
     "attr_threshold": 0.5,
     "grad_clip_norm": 1.0,
+    "retrieval_loss_weight": 1.0,
+    "retrieval_temperature": 0.07,
+    "retrieval_recall_at_k": [1, 5],
     "scheduler": {
         "type": "cosine",
         "eta_min": 1e-5,
     },
     "metrics_history_path": PROJECT_ROOT / "metrics_history.json",
     "runs_summary_path": PROJECT_ROOT / "runs.json",
-    "checkpoint_dir": PROJECT_ROOT / "checkpoints",
     "seed": 1337,
 }
 
@@ -89,6 +97,9 @@ def build_model(config: Dict[str, Any], num_classes: int, num_attributes: int) -
         num_classes=num_classes,
         num_attributes=num_attributes,
         freeze_backbone=config["freeze_backbone_epochs"] > 0,
+        text_model_name=config["text_model_name"],
+        embedding_dim=config["embedding_dim"],
+        freeze_text_backbone=config["freeze_text_backbone"],
     )
 
 
@@ -169,21 +180,66 @@ def run_epoch(
     total_loss = 0.0
     total_samples = 0
 
+    retrieval_weight = float(config.get("retrieval_loss_weight", 0.0))
+    retrieval_temperature = float(config.get("retrieval_temperature", 0.07))
+    recall_targets = [int(k) for k in config.get("retrieval_recall_at_k", []) if int(k) > 0]
+    recall_targets.sort()
+    max_recall_k = recall_targets[-1] if recall_targets else 0
+    compute_retrieval = retrieval_weight > 0.0 or bool(recall_targets)
+
+    retrieval_loss_sum = 0.0
+    retrieval_sample_count = 0
+    retrieval_recall_hits = {k: 0 for k in recall_targets}
+    retrieval_reciprocal_rank_sum = 0.0
+
     for batch in dataloader:
-        images, class_ids, attr_targets, _ = batch
+        images, class_ids, attr_targets, metadata = batch
         images = images.to(device, non_blocking=True)
         class_ids = class_ids.to(device, non_blocking=True)
         attr_targets = attr_targets.to(device, non_blocking=True)
+        captions: List[str] = [entry.get("caption", "") if isinstance(entry, dict) else "" for entry in metadata]
 
         optimizer_ctx = torch.enable_grad() if is_train else torch.no_grad()
         with optimizer_ctx:
-            outputs = model(images)
+            outputs = model(images, captions=captions if compute_retrieval else None, device=device)
             class_logits = outputs["class_logits"]
             attr_logits = outputs["attr_logits"]
 
             loss_class = classification_loss(class_logits, class_ids)
             loss_attr = attribute_loss(attr_logits, attr_targets)
             loss = loss_class + config["attr_loss_weight"] * loss_attr
+
+            if compute_retrieval:
+                image_embeddings = outputs.get("image_embeddings")
+                text_embeddings = outputs.get("text_embeddings")
+                if image_embeddings is None or text_embeddings is None:
+                    raise RuntimeError("Model did not return retrieval embeddings while retrieval is enabled.")
+                logits = image_embeddings @ text_embeddings.t()
+                if retrieval_temperature <= 0:
+                    raise ValueError("retrieval_temperature must be positive.")
+                logits = logits / retrieval_temperature
+                labels = torch.arange(images.size(0), device=device)
+
+                loss_i2t = F.cross_entropy(logits, labels)
+                loss_t2i = F.cross_entropy(logits.t(), labels)
+                retrieval_loss = 0.5 * (loss_i2t + loss_t2i)
+                loss = loss + retrieval_weight * retrieval_loss
+
+                retrieval_loss_sum += retrieval_loss.item() * images.size(0)
+                retrieval_sample_count += images.size(0)
+
+                with torch.no_grad():
+                    sorted_indices = torch.argsort(logits, dim=-1, descending=True)
+                    matches = sorted_indices.eq(labels.unsqueeze(1))
+                    match_positions = torch.argmax(matches.float(), dim=1)
+                    ranks = match_positions + 1
+                    retrieval_reciprocal_rank_sum += torch.sum(1.0 / ranks.float()).item()
+
+                    if max_recall_k > 0:
+                        topk_indices = logits.topk(k=max_recall_k, dim=-1).indices
+                        for k in recall_targets:
+                            hits = (topk_indices[:, :k] == labels.unsqueeze(1)).any(dim=1).sum().item()
+                            retrieval_recall_hits[k] += hits
 
             if is_train:
                 optimizer.zero_grad(set_to_none=True)
@@ -210,7 +266,19 @@ def run_epoch(
         metrics["attr_f1_per_label"].update(attr_prob, attr_targets_int)
 
     avg_loss = total_loss / max(1, total_samples)
-    return {"loss": avg_loss, **compute_metrics(metrics)}
+    summary = {"loss": avg_loss, **compute_metrics(metrics)}
+    if retrieval_sample_count > 0:
+        summary["retrieval_loss"] = retrieval_loss_sum / retrieval_sample_count
+        summary["retrieval_mrr"] = retrieval_reciprocal_rank_sum / retrieval_sample_count
+        summary["retrieval_recall_at_k"] = {
+            k: retrieval_recall_hits[k] / retrieval_sample_count for k in recall_targets
+        }
+    else:
+        summary["retrieval_loss"] = 0.0
+        summary["retrieval_mrr"] = 0.0
+        summary["retrieval_recall_at_k"] = {k: 0.0 for k in recall_targets}
+
+    return summary
 
 
 def build_epoch_record(
@@ -220,7 +288,9 @@ def build_epoch_record(
     class_names: Iterable[str],
     attribute_names: Iterable[str],
 ) -> Dict[str, Any]:
-    return {
+    retrieval_recall = metrics.get("retrieval_recall_at_k", {})
+
+    record = {
         "epoch": epoch,
         "split": split,
         "loss": metrics["loss"],
@@ -246,6 +316,14 @@ def build_epoch_record(
         },
     }
 
+    record["retrieval"] = {
+        "loss": metrics.get("retrieval_loss", 0.0),
+        "mrr": metrics.get("retrieval_mrr", 0.0),
+        "recall_at_k": {str(k): float(retrieval_recall.get(k, 0.0)) for k in sorted(retrieval_recall)},
+    }
+
+    return record
+
 
 def append_json_records(path: Path, records: List[Dict[str, Any]]) -> None:
     existing: List[Dict[str, Any]] = []
@@ -258,6 +336,9 @@ def append_json_records(path: Path, records: List[Dict[str, Any]]) -> None:
 
 
 def append_run_summary(path: Path, config: Dict[str, Any], train_metrics: Dict[str, Any], val_metrics: Dict[str, Any]) -> None:
+    train_recall = train_metrics.get("retrieval_recall_at_k", {})
+    val_recall = val_metrics.get("retrieval_recall_at_k", {})
+
     summary_entry = {
         "run_id": datetime.utcnow().isoformat(timespec="seconds"),
         "config": {
@@ -272,6 +353,9 @@ def append_run_summary(path: Path, config: Dict[str, Any], train_metrics: Dict[s
                 "classification_f1": train_metrics["class_f1_overall"],
                 "attribute_accuracy": train_metrics["attr_accuracy_overall"],
                 "attribute_f1": train_metrics["attr_f1_overall"],
+                "retrieval_loss": train_metrics.get("retrieval_loss", 0.0),
+                "retrieval_mrr": train_metrics.get("retrieval_mrr", 0.0),
+                "retrieval_recall_at_k": {str(k): float(train_recall.get(k, 0.0)) for k in sorted(train_recall)},
             },
             "val": {
                 "loss": val_metrics["loss"],
@@ -279,6 +363,9 @@ def append_run_summary(path: Path, config: Dict[str, Any], train_metrics: Dict[s
                 "classification_f1": val_metrics["class_f1_overall"],
                 "attribute_accuracy": val_metrics["attr_accuracy_overall"],
                 "attribute_f1": val_metrics["attr_f1_overall"],
+                "retrieval_loss": val_metrics.get("retrieval_loss", 0.0),
+                "retrieval_mrr": val_metrics.get("retrieval_mrr", 0.0),
+                "retrieval_recall_at_k": {str(k): float(val_recall.get(k, 0.0)) for k in sorted(val_recall)},
             },
         },
     }
@@ -294,6 +381,7 @@ def append_run_summary(path: Path, config: Dict[str, Any], train_metrics: Dict[s
 
 def main() -> None:
     config = CONFIG
+    config["checkpoint_dir"] = PROJECT_ROOT / "checkpoints" / config["experiment_tag"]
     set_seed(config["seed"])
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -366,15 +454,20 @@ def main() -> None:
                 "optimizer_state_dict": optimizer.state_dict(),
                 "config": config,
             }
-            torch.save(checkpoint_payload, config["checkpoint_dir"] / "best_class_attr.pt")
+            torch.save(checkpoint_payload, config["checkpoint_dir"] / "best_multitask.pt")
 
         if scheduler is not None:
             scheduler.step()
 
+        retrieval_recall_val = val_metrics.get("retrieval_recall_at_k", {})
+        val_recall_at1 = retrieval_recall_val.get(1, 0.0)
+        val_mrr = val_metrics.get("retrieval_mrr", 0.0)
+
         print(
             f"Epoch {epoch:03d}/{config['num_epochs']}: "
             f"train_loss={last_train_metrics['loss']:.4f}, val_loss={val_metrics['loss']:.4f}, "
-            f"val_acc={val_metrics['class_accuracy_overall']:.4f}, val_attr_f1={val_metrics['attr_f1_overall']:.4f}"
+            f"val_acc={val_metrics['class_accuracy_overall']:.4f}, val_attr_f1={val_metrics['attr_f1_overall']:.4f}, "
+            f"val_recall@1={val_recall_at1:.4f}, val_mrr={val_mrr:.4f}"
         )
 
     if last_train_metrics is None or best_val_metrics is None:

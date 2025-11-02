@@ -17,4 +17,5 @@ context.md
 model_structure.md
 train_2heads_methodology.md
 current_status.md
+added_text_head.md
 checkpoints/*

@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Iterable, Optional
+from typing import Dict, Iterable, List, Optional
 
 import timm
 import torch
+import torch.nn.functional as F
+from sentence_transformers import SentenceTransformer
 from torch import Tensor, nn
 
 
@@ -12,14 +14,20 @@ from torch import Tensor, nn
 class MultiTaskOutput:
     class_logits: Tensor
     attr_logits: Tensor
-    embedding: Tensor
+    image_embeddings: Tensor
+    text_embeddings: Optional[Tensor] = None
 
     def as_dict(self) -> Dict[str, Tensor]:
-        return {
+        payload: Dict[str, Tensor] = {
             "class_logits": self.class_logits,
             "attr_logits": self.attr_logits,
-            "embedding": self.embedding,
+            "image_embeddings": self.image_embeddings,
         }
+        if self.text_embeddings is not None:
+            payload["text_embeddings"] = self.text_embeddings
+        # Backward compatibility alias for any downstream code still expecting `embedding`.
+        payload["embedding"] = self.image_embeddings
+        return payload
 
 
 class MultiTaskModel(nn.Module):
@@ -30,7 +38,9 @@ class MultiTaskModel(nn.Module):
         num_attributes: int,
         *,
         freeze_backbone: bool = True,
-        retrieval_head: Optional[nn.Module] = None,
+        text_model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        embedding_dim: int = 256,
+        freeze_text_backbone: bool = True,
     ) -> None:
         super().__init__()
 
@@ -48,12 +58,29 @@ class MultiTaskModel(nn.Module):
         self.class_head = nn.Linear(self.feature_dim, num_classes)
         self.attr_head = nn.Linear(self.feature_dim, num_attributes)
 
-        self.retrieval_head = retrieval_head if retrieval_head is not None else nn.Identity()
+        self.embedding_dim = int(embedding_dim)
+
+        self.image_projection = nn.Linear(self.feature_dim, self.embedding_dim)
+
+        self.text_encoder = SentenceTransformer(text_model_name)
+        self.freeze_text_backbone = freeze_text_backbone
+        if self.freeze_text_backbone:
+            self.text_encoder.eval()
+            self.text_encoder.requires_grad_(False)
+
+        text_embedding_dim = int(self.text_encoder.get_sentence_embedding_dimension())
+        self.text_projection = nn.Linear(text_embedding_dim, self.embedding_dim)
 
         if freeze_backbone:
             self.freeze_backbone()
 
-    def forward(self, images: Tensor) -> Dict[str, Tensor]:
+    def forward(
+        self,
+        images: Tensor,
+        captions: Optional[List[str]] = None,
+        *,
+        device: Optional[torch.device] = None,
+    ) -> Dict[str, Tensor]:
         features = self.backbone.forward_features(images)
         pooled = (
             self.backbone.forward_head(features, pre_logits=True)
@@ -63,9 +90,34 @@ class MultiTaskModel(nn.Module):
 
         class_logits = self.class_head(pooled)
         attr_logits = self.attr_head(pooled)
-        embedding = self.retrieval_head(pooled)
+        image_embeddings = F.normalize(self.image_projection(pooled), p=2, dim=-1)
 
-        return MultiTaskOutput(class_logits, attr_logits, embedding).as_dict()
+        text_embeddings: Optional[Tensor] = None
+        if captions is not None:
+            text_embeddings = self.encode_text(captions, device=device or images.device)
+
+        return MultiTaskOutput(class_logits, attr_logits, image_embeddings, text_embeddings).as_dict()
+
+    def encode_text(self, captions: List[str], device: torch.device) -> Tensor:
+        if not captions:
+            raise ValueError("Captions list must not be empty when requesting text embeddings.")
+
+        if self.freeze_text_backbone:
+            with torch.no_grad():
+                raw_embeddings = self.text_encoder.encode(
+                    captions,
+                    convert_to_tensor=True,
+                    device=device,
+                    show_progress_bar=False,
+                )
+        else:
+            tokenized = self.text_encoder.tokenize(captions)
+            tokenized = {key: value.to(device) for key, value in tokenized.items()}
+            outputs = self.text_encoder(tokenized)
+            raw_embeddings = outputs["sentence_embedding"]
+
+        projected = self.text_projection(raw_embeddings.to(device))
+        return F.normalize(projected, p=2, dim=-1)
 
     def freeze_backbone(self) -> None:
         for param in self.backbone.parameters():
@@ -79,6 +131,10 @@ class MultiTaskModel(nn.Module):
         return self.backbone.parameters()
 
     def head_parameters(self) -> Iterable[torch.nn.Parameter]:
-        params = [*self.class_head.parameters(), *self.attr_head.parameters()]
-        params.extend(self.retrieval_head.parameters())
+        params = [
+            *self.class_head.parameters(),
+            *self.attr_head.parameters(),
+            *self.image_projection.parameters(),
+            *self.text_projection.parameters(),
+        ]
         return params
