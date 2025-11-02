@@ -392,7 +392,8 @@ def append_run_summary(path: Path, config: Dict[str, Any], train_metrics: Dict[s
 
 def main() -> None:
     config = CONFIG
-    config["checkpoint_dir"] = PROJECT_ROOT / "checkpoints" / config["experiment_tag"]
+    backbone_tag = config["backbone_name"].replace("/", "_")
+    config["checkpoint_dir"] = PROJECT_ROOT / "checkpoints" / config["experiment_tag"] / backbone_tag
     set_seed(config["seed"])
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
