@@ -197,7 +197,14 @@ def run_epoch(
         images = images.to(device, non_blocking=True)
         class_ids = class_ids.to(device, non_blocking=True)
         attr_targets = attr_targets.to(device, non_blocking=True)
-        captions: List[str] = [entry.get("caption", "") if isinstance(entry, dict) else "" for entry in metadata]
+        if isinstance(metadata, dict):
+            raw_captions = metadata.get("caption")
+            if isinstance(raw_captions, list):
+                captions = [text if isinstance(text, str) else "" for text in raw_captions]
+            else:
+                captions = ["" for _ in range(images.size(0))]
+        else:
+            captions = [entry.get("caption", "") if isinstance(entry, dict) else "" for entry in metadata]
 
         optimizer_ctx = torch.enable_grad() if is_train else torch.no_grad()
         with optimizer_ctx:
