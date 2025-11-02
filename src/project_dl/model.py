@@ -110,13 +110,18 @@ class MultiTaskModel(nn.Module):
                     device=device,
                     show_progress_bar=False,
                 )
+            raw_embeddings = raw_embeddings.detach().clone()
         else:
             tokenized = self.text_encoder.tokenize(captions)
             tokenized = {key: value.to(device) for key, value in tokenized.items()}
             outputs = self.text_encoder(tokenized)
             raw_embeddings = outputs["sentence_embedding"]
 
-        projected = self.text_projection(raw_embeddings.to(device))
+        raw_embeddings = raw_embeddings.to(device)
+        if torch.is_inference_mode_enabled():
+            raw_embeddings = raw_embeddings.clone().detach()
+
+        projected = self.text_projection(raw_embeddings)
         return F.normalize(projected, p=2, dim=-1)
 
     def freeze_backbone(self) -> None:
