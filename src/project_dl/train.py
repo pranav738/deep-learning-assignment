@@ -48,6 +48,10 @@ CONFIG: Dict[str, Any] = {
     "retrieval_loss_weight": 1.0,
     "retrieval_temperature": 0.07,
     "retrieval_recall_at_k": [],
+    "checkpoint_f1_weights": {
+        "classification": 0.5,
+        "attributes": 0.5,
+    },
     "scheduler": {
         "type": "cosine",
         "eta_min": 1e-5,
@@ -413,7 +417,7 @@ def main() -> None:
     class_names = train_ds.class_names()
     attribute_names = train_ds.attribute_names()
 
-    best_val_loss = float("inf")
+    best_val_score = float("-inf")
     best_val_metrics: Dict[str, Any] | None = None
     last_train_metrics: Dict[str, Any] | None = None
 
@@ -456,8 +460,16 @@ def main() -> None:
         ]
         append_json_records(metrics_history_path, metric_records)
 
-        if val_metrics["loss"] < best_val_loss:
-            best_val_loss = val_metrics["loss"]
+        f1_weights = config.get("checkpoint_f1_weights", {})
+        class_weight = float(f1_weights.get("classification", 0.5))
+        attr_weight = float(f1_weights.get("attributes", 0.5))
+        val_score = (
+            class_weight * val_metrics.get("class_f1_overall", 0.0)
+            + attr_weight * val_metrics.get("attr_f1_overall", 0.0)
+        )
+
+        if val_score > best_val_score:
+            best_val_score = val_score
             best_val_metrics = val_metrics
             checkpoint_payload = {
                 "epoch": epoch,
@@ -473,12 +485,12 @@ def main() -> None:
         retrieval_recall_val = val_metrics.get("retrieval_recall_at_k", {})
         val_recall_at1 = retrieval_recall_val.get(1, 0.0)
         val_mrr = val_metrics.get("retrieval_mrr", 0.0)
-
         print(
             f"Epoch {epoch:03d}/{config['num_epochs']}: "
             f"train_loss={last_train_metrics['loss']:.4f}, val_loss={val_metrics['loss']:.4f}, "
             f"val_acc={val_metrics['class_accuracy_overall']:.4f}, val_attr_f1={val_metrics['attr_f1_overall']:.4f}, "
-            f"val_recall@1={val_recall_at1:.4f}, val_mrr={val_mrr:.4f}"
+            f"val_recall@1={val_recall_at1:.4f}, val_mrr={val_mrr:.4f}, "
+            f"checkpoint_score={val_score:.4f}"
         )
 
     if last_train_metrics is None or best_val_metrics is None:
