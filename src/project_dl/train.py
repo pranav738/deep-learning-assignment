@@ -1,0 +1,387 @@
+"""Training script for classification and attribute heads."""
+
+from __future__ import annotations
+
+import json
+import random
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, Iterable, List, Tuple
+
+import torch
+from torch import nn
+from torch.utils.data import DataLoader
+
+from torchmetrics.classification import (
+    MulticlassAccuracy,
+    MulticlassF1Score,
+    MultilabelAccuracy,
+    MultilabelF1Score,
+)
+
+from project_dl.dataset import MultiTaskDataset
+from project_dl.model import MultiTaskModel
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+
+CONFIG: Dict[str, Any] = {
+    "project_root": PROJECT_ROOT,
+    "batch_size": 32,
+    "num_epochs": 25,
+    "learning_rate": 3e-4,
+    "weight_decay": 1e-4,
+    "num_workers": 4,
+    "pin_memory": True,
+    "backbone_name": "deit_tiny_patch16_224",
+    "freeze_backbone_epochs": 5,
+    "attr_loss_weight": 1.0,
+    "attr_threshold": 0.5,
+    "grad_clip_norm": 1.0,
+    "scheduler": {
+        "type": "cosine",
+        "eta_min": 1e-5,
+    },
+    "metrics_history_path": PROJECT_ROOT / "metrics_history.json",
+    "runs_summary_path": PROJECT_ROOT / "runs.json",
+    "checkpoint_dir": PROJECT_ROOT / "checkpoints",
+    "seed": 1337,
+}
+
+
+def set_seed(seed: int) -> None:
+    random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
+
+def create_dataloaders(config: Dict[str, Any]) -> Tuple[MultiTaskDataset, MultiTaskDataset, DataLoader, DataLoader]:
+    train_dataset = MultiTaskDataset(config["project_root"], split="train")
+    val_dataset = MultiTaskDataset(config["project_root"], split="val")
+
+    common_loader_kwargs = {
+        "batch_size": config["batch_size"],
+        "num_workers": config["num_workers"],
+        "pin_memory": config["pin_memory"] and torch.cuda.is_available(),
+    }
+
+    train_loader = DataLoader(
+        train_dataset,
+        shuffle=True,
+        drop_last=False,
+        **common_loader_kwargs,
+    )
+
+    val_loader = DataLoader(
+        val_dataset,
+        shuffle=False,
+        drop_last=False,
+        **common_loader_kwargs,
+    )
+
+    return train_dataset, val_dataset, train_loader, val_loader
+
+
+def build_model(config: Dict[str, Any], num_classes: int, num_attributes: int) -> MultiTaskModel:
+    return MultiTaskModel(
+        backbone_name=config["backbone_name"],
+        num_classes=num_classes,
+        num_attributes=num_attributes,
+        freeze_backbone=config["freeze_backbone_epochs"] > 0,
+    )
+
+
+def build_optimizer(model: MultiTaskModel, config: Dict[str, Any]) -> torch.optim.Optimizer:
+    return torch.optim.AdamW(
+        model.parameters(),
+        lr=config["learning_rate"],
+        weight_decay=config["weight_decay"],
+    )
+
+
+def build_scheduler(
+    optimizer: torch.optim.Optimizer, config: Dict[str, Any]
+) -> torch.optim.lr_scheduler.LRScheduler | None:
+    scheduler_cfg = config.get("scheduler", {})
+    name = scheduler_cfg.get("type", "none").lower()
+
+    if name == "cosine":
+        return torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=max(1, config["num_epochs"]),
+            eta_min=float(scheduler_cfg.get("eta_min", 0.0)),
+        )
+    if name == "step":
+        step_size = int(scheduler_cfg.get("step_size", 5))
+        gamma = float(scheduler_cfg.get("gamma", 0.1))
+        return torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=gamma)
+    return None
+
+
+def init_metric_bundle(num_classes: int, num_attributes: int, attr_threshold: float, device: torch.device) -> Dict[str, Any]:
+    bundle = {
+        "class_acc_overall": MulticlassAccuracy(num_classes=num_classes, average="micro"),
+        "class_acc_per_class": MulticlassAccuracy(num_classes=num_classes, average="none"),
+        "class_f1_overall": MulticlassF1Score(num_classes=num_classes, average="macro"),
+        "class_f1_per_class": MulticlassF1Score(num_classes=num_classes, average="none"),
+        "attr_acc_overall": MultilabelAccuracy(num_labels=num_attributes, average="micro", threshold=attr_threshold),
+        "attr_acc_per_label": MultilabelAccuracy(num_labels=num_attributes, average="none", threshold=attr_threshold),
+        "attr_f1_overall": MultilabelF1Score(num_labels=num_attributes, average="macro", threshold=attr_threshold),
+        "attr_f1_per_label": MultilabelF1Score(num_labels=num_attributes, average="none", threshold=attr_threshold),
+    }
+    for metric in bundle.values():
+        metric.to(device)
+    return bundle
+
+
+def reset_metrics(metrics: Dict[str, Any]) -> None:
+    for metric in metrics.values():
+        metric.reset()
+
+
+def compute_metrics(metrics: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "class_accuracy_overall": float(metrics["class_acc_overall"].compute().item()),
+        "class_accuracy_per_class": metrics["class_acc_per_class"].compute().cpu().tolist(),
+        "class_f1_overall": float(metrics["class_f1_overall"].compute().item()),
+        "class_f1_per_class": metrics["class_f1_per_class"].compute().cpu().tolist(),
+        "attr_accuracy_overall": float(metrics["attr_acc_overall"].compute().item()),
+        "attr_accuracy_per_label": metrics["attr_acc_per_label"].compute().cpu().tolist(),
+        "attr_f1_overall": float(metrics["attr_f1_overall"].compute().item()),
+        "attr_f1_per_label": metrics["attr_f1_per_label"].compute().cpu().tolist(),
+    }
+
+
+def run_epoch(
+    model: MultiTaskModel,
+    dataloader: DataLoader,
+    device: torch.device,
+    metrics: Dict[str, Any],
+    classification_loss: nn.Module,
+    attribute_loss: nn.Module,
+    config: Dict[str, Any],
+    optimizer: torch.optim.Optimizer | None = None,
+) -> Dict[str, Any]:
+    is_train = optimizer is not None
+    model.train(is_train)
+
+    total_loss = 0.0
+    total_samples = 0
+
+    for batch in dataloader:
+        images, class_ids, attr_targets, _ = batch
+        images = images.to(device, non_blocking=True)
+        class_ids = class_ids.to(device, non_blocking=True)
+        attr_targets = attr_targets.to(device, non_blocking=True)
+
+        optimizer_ctx = torch.enable_grad() if is_train else torch.no_grad()
+        with optimizer_ctx:
+            outputs = model(images)
+            class_logits = outputs["class_logits"]
+            attr_logits = outputs["attr_logits"]
+
+            loss_class = classification_loss(class_logits, class_ids)
+            loss_attr = attribute_loss(attr_logits, attr_targets)
+            loss = loss_class + config["attr_loss_weight"] * loss_attr
+
+            if is_train:
+                optimizer.zero_grad(set_to_none=True)
+                loss.backward()
+                if config.get("grad_clip_norm"):
+                    nn.utils.clip_grad_norm_(model.parameters(), config["grad_clip_norm"])
+                optimizer.step()
+
+        batch_size = images.size(0)
+        total_samples += batch_size
+        total_loss += loss.item() * batch_size
+
+        class_preds = class_logits.argmax(dim=-1)
+        metrics["class_acc_overall"].update(class_preds, class_ids)
+        metrics["class_acc_per_class"].update(class_preds, class_ids)
+        metrics["class_f1_overall"].update(class_preds, class_ids)
+        metrics["class_f1_per_class"].update(class_preds, class_ids)
+
+        attr_prob = torch.sigmoid(attr_logits)
+        attr_targets_int = attr_targets.int()
+        metrics["attr_acc_overall"].update(attr_prob, attr_targets_int)
+        metrics["attr_acc_per_label"].update(attr_prob, attr_targets_int)
+        metrics["attr_f1_overall"].update(attr_prob, attr_targets_int)
+        metrics["attr_f1_per_label"].update(attr_prob, attr_targets_int)
+
+    avg_loss = total_loss / max(1, total_samples)
+    return {"loss": avg_loss, **compute_metrics(metrics)}
+
+
+def build_epoch_record(
+    epoch: int,
+    split: str,
+    metrics: Dict[str, Any],
+    class_names: Iterable[str],
+    attribute_names: Iterable[str],
+) -> Dict[str, Any]:
+    return {
+        "epoch": epoch,
+        "split": split,
+        "loss": metrics["loss"],
+        "classification": {
+            "accuracy": {
+                "overall": metrics["class_accuracy_overall"],
+                "per_class": {name: value for name, value in zip(class_names, metrics["class_accuracy_per_class"])}
+            },
+            "f1": {
+                "overall": metrics["class_f1_overall"],
+                "per_class": {name: value for name, value in zip(class_names, metrics["class_f1_per_class"])}
+            },
+        },
+        "attributes": {
+            "accuracy": {
+                "overall": metrics["attr_accuracy_overall"],
+                "per_attribute": {name: value for name, value in zip(attribute_names, metrics["attr_accuracy_per_label"])}
+            },
+            "f1": {
+                "overall": metrics["attr_f1_overall"],
+                "per_attribute": {name: value for name, value in zip(attribute_names, metrics["attr_f1_per_label"])}
+            },
+        },
+    }
+
+
+def append_json_records(path: Path, records: List[Dict[str, Any]]) -> None:
+    existing: List[Dict[str, Any]] = []
+    if path.exists():
+        with path.open("r", encoding="utf-8") as handle:
+            existing = json.load(handle)
+    existing.extend(records)
+    with path.open("w", encoding="utf-8") as handle:
+        json.dump(existing, handle, indent=2)
+
+
+def append_run_summary(path: Path, config: Dict[str, Any], train_metrics: Dict[str, Any], val_metrics: Dict[str, Any]) -> None:
+    summary_entry = {
+        "run_id": datetime.utcnow().isoformat(timespec="seconds"),
+        "config": {
+            key: (str(value) if isinstance(value, Path) else value)
+            for key, value in config.items()
+            if key not in {"metrics_history_path", "runs_summary_path", "checkpoint_dir"}
+        },
+        "results": {
+            "train": {
+                "loss": train_metrics["loss"],
+                "classification_accuracy": train_metrics["class_accuracy_overall"],
+                "classification_f1": train_metrics["class_f1_overall"],
+                "attribute_accuracy": train_metrics["attr_accuracy_overall"],
+                "attribute_f1": train_metrics["attr_f1_overall"],
+            },
+            "val": {
+                "loss": val_metrics["loss"],
+                "classification_accuracy": val_metrics["class_accuracy_overall"],
+                "classification_f1": val_metrics["class_f1_overall"],
+                "attribute_accuracy": val_metrics["attr_accuracy_overall"],
+                "attribute_f1": val_metrics["attr_f1_overall"],
+            },
+        },
+    }
+
+    existing: List[Dict[str, Any]] = []
+    if path.exists():
+        with path.open("r", encoding="utf-8") as handle:
+            existing = json.load(handle)
+    existing.append(summary_entry)
+    with path.open("w", encoding="utf-8") as handle:
+        json.dump(existing, handle, indent=2)
+
+
+def main() -> None:
+    config = CONFIG
+    set_seed(config["seed"])
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    config["pin_memory"] = config["pin_memory"] and device.type == "cuda"
+
+    config["checkpoint_dir"].mkdir(parents=True, exist_ok=True)
+
+    train_ds, val_ds, train_loader, val_loader = create_dataloaders(config)
+    model = build_model(config, train_ds.num_classes, train_ds.num_attributes).to(device)
+
+    optimizer = build_optimizer(model, config)
+    scheduler = build_scheduler(optimizer, config)
+
+    classification_loss = nn.CrossEntropyLoss()
+    attribute_loss = nn.BCEWithLogitsLoss()
+
+    class_names = train_ds.class_names()
+    attribute_names = train_ds.attribute_names()
+
+    best_val_loss = float("inf")
+    best_val_metrics: Dict[str, Any] | None = None
+    last_train_metrics: Dict[str, Any] | None = None
+
+    metrics_history_path: Path = config["metrics_history_path"]
+    runs_summary_path: Path = config["runs_summary_path"]
+
+    for epoch in range(1, config["num_epochs"] + 1):
+        if config["freeze_backbone_epochs"] and epoch == config["freeze_backbone_epochs"] + 1:
+            model.unfreeze_backbone()
+
+        train_metrics_bundle = init_metric_bundle(train_ds.num_classes, train_ds.num_attributes, config["attr_threshold"], device)
+        val_metrics_bundle = init_metric_bundle(train_ds.num_classes, train_ds.num_attributes, config["attr_threshold"], device)
+
+        reset_metrics(train_metrics_bundle)
+        last_train_metrics = run_epoch(
+            model=model,
+            dataloader=train_loader,
+            device=device,
+            metrics=train_metrics_bundle,
+            classification_loss=classification_loss,
+            attribute_loss=attribute_loss,
+            config=config,
+            optimizer=optimizer,
+        )
+
+        reset_metrics(val_metrics_bundle)
+        val_metrics = run_epoch(
+            model=model,
+            dataloader=val_loader,
+            device=device,
+            metrics=val_metrics_bundle,
+            classification_loss=classification_loss,
+            attribute_loss=attribute_loss,
+            config=config,
+        )
+
+        metric_records = [
+            build_epoch_record(epoch, "train", last_train_metrics, class_names, attribute_names),
+            build_epoch_record(epoch, "val", val_metrics, class_names, attribute_names),
+        ]
+        append_json_records(metrics_history_path, metric_records)
+
+        if val_metrics["loss"] < best_val_loss:
+            best_val_loss = val_metrics["loss"]
+            best_val_metrics = val_metrics
+            checkpoint_payload = {
+                "epoch": epoch,
+                "model_state_dict": model.state_dict(),
+                "optimizer_state_dict": optimizer.state_dict(),
+                "config": config,
+            }
+            torch.save(checkpoint_payload, config["checkpoint_dir"] / "best_class_attr.pt")
+
+        if scheduler is not None:
+            scheduler.step()
+
+        print(
+            f"Epoch {epoch:03d}/{config['num_epochs']}: "
+            f"train_loss={last_train_metrics['loss']:.4f}, val_loss={val_metrics['loss']:.4f}, "
+            f"val_acc={val_metrics['class_accuracy_overall']:.4f}, val_attr_f1={val_metrics['attr_f1_overall']:.4f}"
+        )
+
+    if last_train_metrics is None or best_val_metrics is None:
+        raise RuntimeError("Training did not produce metrics; please check configuration.")
+
+    append_run_summary(runs_summary_path, config, last_train_metrics, best_val_metrics)
+
+
+if __name__ == "__main__":  # pragma: no cover
+    main()
