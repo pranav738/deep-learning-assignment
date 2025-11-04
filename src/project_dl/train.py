@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import random
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
+from zoneinfo import ZoneInfo
 
 import torch
 from torch import nn
@@ -56,8 +58,7 @@ CONFIG: Dict[str, Any] = {
         "type": "cosine",
         "eta_min": 1e-5,
     },
-    "metrics_history_path": PROJECT_ROOT / "metrics_history.json",
-    "runs_summary_path": PROJECT_ROOT / "runs.json",
+    "runs_csv_path": PROJECT_ROOT / "runs.csv",
     "seed": 1337,
 }
 
@@ -346,61 +347,77 @@ def append_json_records(path: Path, records: List[Dict[str, Any]]) -> None:
         json.dump(existing, handle, indent=2)
 
 
-def append_run_summary(path: Path, config: Dict[str, Any], train_metrics: Dict[str, Any], val_metrics: Dict[str, Any]) -> None:
+def write_run_results(path: Path, run_id: str, epoch: int, train_metrics: Dict[str, Any], val_metrics: Dict[str, Any], checkpoint_score: float) -> None:
     train_recall = train_metrics.get("retrieval_recall_at_k", {})
     val_recall = val_metrics.get("retrieval_recall_at_k", {})
 
-    summary_entry = {
-        "run_id": datetime.utcnow().isoformat(timespec="seconds"),
-        "config": {
-            key: (str(value) if isinstance(value, Path) else value)
-            for key, value in config.items()
-            if key not in {"metrics_history_path", "runs_summary_path", "checkpoint_dir"}
+    payload = {
+        "run_id": run_id,
+        "best_epoch": epoch,
+        "checkpoint_score": checkpoint_score,
+        "train": {
+            "loss": train_metrics["loss"],
+            "classification_accuracy": train_metrics["class_accuracy_overall"],
+            "classification_f1": train_metrics["class_f1_overall"],
+            "attribute_accuracy": train_metrics["attr_accuracy_overall"],
+            "attribute_f1": train_metrics["attr_f1_overall"],
+            "retrieval_loss": train_metrics.get("retrieval_loss", 0.0),
+            "retrieval_mrr": train_metrics.get("retrieval_mrr", 0.0),
+            "retrieval_recall_at_k": {str(k): float(train_recall.get(k, 0.0)) for k in sorted(train_recall)},
         },
-        "results": {
-            "train": {
-                "loss": train_metrics["loss"],
-                "classification_accuracy": train_metrics["class_accuracy_overall"],
-                "classification_f1": train_metrics["class_f1_overall"],
-                "attribute_accuracy": train_metrics["attr_accuracy_overall"],
-                "attribute_f1": train_metrics["attr_f1_overall"],
-                "retrieval_loss": train_metrics.get("retrieval_loss", 0.0),
-                "retrieval_mrr": train_metrics.get("retrieval_mrr", 0.0),
-                "retrieval_recall_at_k": {str(k): float(train_recall.get(k, 0.0)) for k in sorted(train_recall)},
-            },
-            "val": {
-                "loss": val_metrics["loss"],
-                "classification_accuracy": val_metrics["class_accuracy_overall"],
-                "classification_f1": val_metrics["class_f1_overall"],
-                "attribute_accuracy": val_metrics["attr_accuracy_overall"],
-                "attribute_f1": val_metrics["attr_f1_overall"],
-                "retrieval_loss": val_metrics.get("retrieval_loss", 0.0),
-                "retrieval_mrr": val_metrics.get("retrieval_mrr", 0.0),
-                "retrieval_recall_at_k": {str(k): float(val_recall.get(k, 0.0)) for k in sorted(val_recall)},
-            },
+        "val": {
+            "loss": val_metrics["loss"],
+            "classification_accuracy": val_metrics["class_accuracy_overall"],
+            "classification_f1": val_metrics["class_f1_overall"],
+            "attribute_accuracy": val_metrics["attr_accuracy_overall"],
+            "attribute_f1": val_metrics["attr_f1_overall"],
+            "retrieval_loss": val_metrics.get("retrieval_loss", 0.0),
+            "retrieval_mrr": val_metrics.get("retrieval_mrr", 0.0),
+            "retrieval_recall_at_k": {str(k): float(val_recall.get(k, 0.0)) for k in sorted(val_recall)},
         },
     }
 
-    existing: List[Dict[str, Any]] = []
-    if path.exists():
-        with path.open("r", encoding="utf-8") as handle:
-            existing = json.load(handle)
-    existing.append(summary_entry)
     with path.open("w", encoding="utf-8") as handle:
-        json.dump(existing, handle, indent=2)
+        json.dump(payload, handle, indent=2)
+
+
+def append_runs_csv(path: Path, headers: List[str], row: Dict[str, Any]) -> None:
+    exists = path.exists()
+    with path.open("a", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=headers)
+        if not exists:
+            writer.writeheader()
+        writer.writerow(row)
 
 
 def main() -> None:
-    config = CONFIG
+    config = {key: (value.copy() if isinstance(value, dict) else value) for key, value in CONFIG.items()}
+    run_id = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y%m%d-%H%M%S")
     backbone_tag = config["backbone_name"].replace("/", "_")
-    config["checkpoint_dir"] = PROJECT_ROOT / "checkpoints" / config["experiment_tag"] / backbone_tag
+    dataset_tag = config["experiment_tag"]
+
+    run_dir = PROJECT_ROOT / "artifacts" / dataset_tag / backbone_tag / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+
+    config["run_id"] = run_id
     set_seed(config["seed"])
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     config["pin_memory"] = config["pin_memory"] and device.type == "cuda"
 
-    config["checkpoint_dir"].mkdir(parents=True, exist_ok=True)
+    checkpoint_path = run_dir / "best_multitask.pt"
+    metrics_history_path = run_dir / "metrics_history.json"
+    results_path = run_dir / "results.json"
+    runs_csv_path = Path(config["runs_csv_path"])
+
+    config_snapshot = {
+        key: (str(value) if isinstance(value, Path) else value)
+        for key, value in config.items()
+        if key != "runs_csv_path"
+    }
+    with (run_dir / "config.json").open("w", encoding="utf-8") as handle:
+        json.dump(config_snapshot, handle, indent=2)
 
     train_ds, val_ds, train_loader, val_loader = create_dataloaders(config)
     model = build_model(config, train_ds.num_classes, train_ds.num_attributes).to(device)
@@ -420,10 +437,8 @@ def main() -> None:
 
     best_val_score = float("-inf")
     best_val_metrics: Dict[str, Any] | None = None
+    best_epoch = -1
     last_train_metrics: Dict[str, Any] | None = None
-
-    metrics_history_path: Path = config["metrics_history_path"]
-    runs_summary_path: Path = config["runs_summary_path"]
 
     for epoch in range(1, config["num_epochs"] + 1):
         if config["freeze_backbone_epochs"] and epoch == config["freeze_backbone_epochs"] + 1:
@@ -472,13 +487,14 @@ def main() -> None:
         if val_score > best_val_score:
             best_val_score = val_score
             best_val_metrics = val_metrics
+            best_epoch = epoch
             checkpoint_payload = {
                 "epoch": epoch,
                 "model_state_dict": model.state_dict(),
                 "optimizer_state_dict": optimizer.state_dict(),
-                "config": config,
+                "config": config_snapshot,
             }
-            torch.save(checkpoint_payload, config["checkpoint_dir"] / "best_multitask.pt")
+            torch.save(checkpoint_payload, checkpoint_path)
 
         if scheduler is not None:
             scheduler.step()
@@ -497,7 +513,33 @@ def main() -> None:
     if last_train_metrics is None or best_val_metrics is None:
         raise RuntimeError("Training did not produce metrics; please check configuration.")
 
-    append_run_summary(runs_summary_path, config, last_train_metrics, best_val_metrics)
+    write_run_results(results_path, run_id, best_epoch, last_train_metrics, best_val_metrics, best_val_score)
+
+    # Extend config with result summaries for CSV export.
+    config["result_best_epoch"] = best_epoch
+    config["result_checkpoint_score"] = best_val_score
+    config["result_train_loss"] = last_train_metrics["loss"]
+    config["result_train_classification_f1"] = last_train_metrics["class_f1_overall"]
+    config["result_train_attribute_f1"] = last_train_metrics["attr_f1_overall"]
+    config["result_val_loss"] = best_val_metrics["loss"]
+    config["result_val_classification_f1"] = best_val_metrics["class_f1_overall"]
+    config["result_val_attribute_f1"] = best_val_metrics["attr_f1_overall"]
+    config["result_val_retrieval_mrr"] = best_val_metrics.get("retrieval_mrr", 0.0)
+    config["run_dir"] = str(run_dir.relative_to(PROJECT_ROOT))
+
+    csv_headers = sorted(config.keys())
+    csv_row: Dict[str, Any] = {}
+    for key in csv_headers:
+        value = config[key]
+        if isinstance(value, Path):
+            value = str(value)
+        elif isinstance(value, dict):
+            value = json.dumps(value, sort_keys=True)
+        elif isinstance(value, (list, tuple)):
+            value = json.dumps(list(value))
+        csv_row[key] = value
+
+    append_runs_csv(runs_csv_path, csv_headers, csv_row)
 
 
 if __name__ == "__main__":  # pragma: no cover
