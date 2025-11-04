@@ -9,6 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 from zoneinfo import ZoneInfo
+import time
 
 import torch
 from torch import nn
@@ -347,7 +348,15 @@ def append_json_records(path: Path, records: List[Dict[str, Any]]) -> None:
         json.dump(existing, handle, indent=2)
 
 
-def write_run_results(path: Path, run_id: str, epoch: int, train_metrics: Dict[str, Any], val_metrics: Dict[str, Any], checkpoint_score: float) -> None:
+def write_run_results(
+    path: Path,
+    run_id: str,
+    epoch: int,
+    train_metrics: Dict[str, Any],
+    val_metrics: Dict[str, Any],
+    checkpoint_score: float,
+    training_seconds: float,
+) -> None:
     train_recall = train_metrics.get("retrieval_recall_at_k", {})
     val_recall = val_metrics.get("retrieval_recall_at_k", {})
 
@@ -355,6 +364,7 @@ def write_run_results(path: Path, run_id: str, epoch: int, train_metrics: Dict[s
         "run_id": run_id,
         "best_epoch": epoch,
         "checkpoint_score": checkpoint_score,
+        "training_seconds": training_seconds,
         "train": {
             "loss": train_metrics["loss"],
             "classification_accuracy": train_metrics["class_accuracy_overall"],
@@ -440,6 +450,8 @@ def main() -> None:
     best_epoch = -1
     last_train_metrics: Dict[str, Any] | None = None
 
+    start_time = time.perf_counter()
+
     for epoch in range(1, config["num_epochs"] + 1):
         if config["freeze_backbone_epochs"] and epoch == config["freeze_backbone_epochs"] + 1:
             model.unfreeze_backbone()
@@ -513,7 +525,18 @@ def main() -> None:
     if last_train_metrics is None or best_val_metrics is None:
         raise RuntimeError("Training did not produce metrics; please check configuration.")
 
-    write_run_results(results_path, run_id, best_epoch, last_train_metrics, best_val_metrics, best_val_score)
+    training_seconds = time.perf_counter() - start_time
+    print(f"Run {run_id} completed in {training_seconds:.1f} seconds")
+
+    write_run_results(
+        results_path,
+        run_id,
+        best_epoch,
+        last_train_metrics,
+        best_val_metrics,
+        best_val_score,
+        training_seconds,
+    )
 
     # Extend config with result summaries for CSV export.
     config["result_best_epoch"] = best_epoch
@@ -525,6 +548,7 @@ def main() -> None:
     config["result_val_classification_f1"] = best_val_metrics["class_f1_overall"]
     config["result_val_attribute_f1"] = best_val_metrics["attr_f1_overall"]
     config["result_val_retrieval_mrr"] = best_val_metrics.get("retrieval_mrr", 0.0)
+    config["result_training_seconds"] = training_seconds
     config["run_dir"] = str(run_dir.relative_to(PROJECT_ROOT))
 
     csv_headers = sorted(config.keys())
