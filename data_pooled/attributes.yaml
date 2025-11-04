@@ -1,0 +1,3 @@
+color: [black, blue, brown, green, grey, red, silver, transparent, unknown, white]
+material: [fabric, glass, leather, metal, plastic, unknown, wood]
+pattern: [striped, textured, unknown]

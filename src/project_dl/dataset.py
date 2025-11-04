@@ -59,7 +59,7 @@ class MultiTaskDataset(Dataset):
         self.root = Path(root)
         self.split = split
 
-        self.data_dir = self.root / "data"
+        self.data_dir = self.root / "data_pooled"
         if not self.data_dir.exists():
             raise FileNotFoundError(f"Expected data directory at {self.data_dir}")
 

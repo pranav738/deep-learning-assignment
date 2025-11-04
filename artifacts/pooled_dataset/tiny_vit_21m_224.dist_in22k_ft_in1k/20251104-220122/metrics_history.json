@@ -1,0 +1,4702 @@
+[
+  {
+    "epoch": 1,
+    "split": "train",
+    "loss": 3.086581910290004,
+    "classification": {
+      "accuracy": {
+        "overall": 0.8562802076339722,
+        "per_class": {
+          "clothing_wristwatch": 0.8358531594276428,
+          "electronics_keyboard": 0.7875000238418579,
+          "electronics_mouse": 0.8721973299980164,
+          "footwear_sneakers": 0.8291457295417786,
+          "stationery_calculator": 0.7886179089546204,
+          "stationery_notebook": 0.8601694703102112,
+          "tableware_mug": 0.8301886916160583,
+          "tableware_waterbottle": 0.8939393758773804,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.892307698726654
+        }
+      },
+      "f1": {
+        "overall": 0.7582694292068481,
+        "per_class": {
+          "clothing_wristwatch": 0.8785471320152283,
+          "electronics_keyboard": 0.759036123752594,
+          "electronics_mouse": 0.8587196469306946,
+          "footwear_sneakers": 0.8604954481124878,
+          "stationery_calculator": 0.7760000228881836,
+          "stationery_notebook": 0.8268839120864868,
+          "tableware_mug": 0.8496551513671875,
+          "tableware_waterbottle": 0.8721359968185425,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9012208580970764
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.6467542052268982,
+        "per_attribute": {
+          "color:black": 0.6717995405197144,
+          "color:blue": 0.6156401038169861,
+          "color:brown": 0.4785628020763397,
+          "color:green": 0.5821256041526794,
+          "color:grey": 0.6065821051597595,
+          "color:red": 0.5818236470222473,
+          "color:silver": 0.6304348111152649,
+          "color:transparent": 0.5618961453437805,
+          "color:unknown": 0.5187197923660278,
+          "color:white": 0.6769323945045471,
+          "material:fabric": 0.833031415939331,
+          "material:glass": 0.7237318754196167,
+          "material:leather": 0.6515700221061707,
+          "material:metal": 0.6259058117866516,
+          "material:plastic": 0.7306763529777527,
+          "material:unknown": 0.6920289993286133,
+          "material:wood": 0.7086352705955505,
+          "pattern:striped": 0.7412439584732056,
+          "pattern:textured": 0.7019927501678467,
+          "pattern:unknown": 0.6017512083053589
+        }
+      },
+      "f1": {
+        "overall": 0.2977030277252197,
+        "per_attribute": {
+          "color:black": 0.568821907043457,
+          "color:blue": 0.2900167405605316,
+          "color:brown": 0.10098906606435776,
+          "color:green": 0.15712545812129974,
+          "color:grey": 0.16847479343414307,
+          "color:red": 0.12618295848369598,
+          "color:silver": 0.22921913862228394,
+          "color:transparent": 0.10707692056894302,
+          "color:unknown": 0.33305439352989197,
+          "color:white": 0.34596577286720276,
+          "material:fabric": 0.7091004848480225,
+          "material:glass": 0.31563201546669006,
+          "material:leather": 0.13880597054958344,
+          "material:metal": 0.46433204412460327,
+          "material:plastic": 0.649646520614624,
+          "material:unknown": 0.33507171273231506,
+          "material:wood": 0.09559512883424759,
+          "pattern:striped": 0.020571429282426834,
+          "pattern:textured": 0.05004812404513359,
+          "pattern:unknown": 0.7483304738998413
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 1.6703706628458512,
+      "mrr": 0.6002177293749823,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 1,
+    "split": "val",
+    "loss": 2.1507141753466414,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9689018726348877,
+        "per_class": {
+          "clothing_wristwatch": 0.9295774698257446,
+          "electronics_keyboard": 0.949999988079071,
+          "electronics_mouse": 0.9807692170143127,
+          "footwear_sneakers": 0.9892473220825195,
+          "stationery_calculator": 0.875,
+          "stationery_notebook": 0.9530201554298401,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9746835231781006,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9496697187423706,
+        "per_class": {
+          "clothing_wristwatch": 0.9496402740478516,
+          "electronics_keyboard": 0.9405940771102905,
+          "electronics_mouse": 0.9107142686843872,
+          "footwear_sneakers": 0.9928057789802551,
+          "stationery_calculator": 0.8484848737716675,
+          "stationery_notebook": 0.9709401726722717,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9808917045593262,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.7327502369880676,
+        "per_attribute": {
+          "color:black": 0.7201166152954102,
+          "color:blue": 0.5830903649330139,
+          "color:brown": 0.5840622186660767,
+          "color:green": 0.410106897354126,
+          "color:grey": 0.6413994431495667,
+          "color:red": 0.5850340127944946,
+          "color:silver": 0.8396501541137695,
+          "color:transparent": 0.8814383149147034,
+          "color:unknown": 0.5034013390541077,
+          "color:white": 0.6122449040412903,
+          "material:fabric": 0.9018464684486389,
+          "material:glass": 0.9815354943275452,
+          "material:leather": 0.6384839415550232,
+          "material:metal": 0.8600583076477051,
+          "material:plastic": 0.82798832654953,
+          "material:unknown": 0.8211855888366699,
+          "material:wood": 0.6861029863357544,
+          "pattern:striped": 0.7492711544036865,
+          "pattern:textured": 0.9562682509422302,
+          "pattern:unknown": 0.8717201352119446
+        }
+      },
+      "f1": {
+        "overall": 0.3827664256095886,
+        "per_attribute": {
+          "color:black": 0.5215947031974792,
+          "color:blue": 0.26161789894104004,
+          "color:brown": 0.10460250824689865,
+          "color:green": 0.21271076798439026,
+          "color:grey": 0.15172414481639862,
+          "color:red": 0.12320328503847122,
+          "color:silver": 0.24657534062862396,
+          "color:transparent": 0.16438356041908264,
+          "color:unknown": 0.4065040647983551,
+          "color:white": 0.3383084535598755,
+          "material:fabric": 0.843410849571228,
+          "material:glass": 0.8288288116455078,
+          "material:leather": 0.2282157689332962,
+          "material:metal": 0.5324675440788269,
+          "material:plastic": 0.6752293705940247,
+          "material:unknown": 0.7472527623176575,
+          "material:wood": 0.052785925567150116,
+          "pattern:striped": 0.022727273404598236,
+          "pattern:textured": 0.26229506731033325,
+          "pattern:unknown": 0.9308900237083435
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 3.0048477473597255,
+      "mrr": 0.30137775845615694,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 2,
+    "split": "train",
+    "loss": 1.6828391379204348,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9788647294044495,
+        "per_class": {
+          "clothing_wristwatch": 0.9762418866157532,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9753363132476807,
+          "footwear_sneakers": 0.9748743772506714,
+          "stationery_calculator": 0.9430894255638123,
+          "stationery_notebook": 0.9957627058029175,
+          "tableware_mug": 0.9676550030708313,
+          "tableware_waterbottle": 0.9818181991577148,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9890109896659851
+        }
+      },
+      "f1": {
+        "overall": 0.9796453714370728,
+        "per_class": {
+          "clothing_wristwatch": 0.9783549904823303,
+          "electronics_keyboard": 0.9875776171684265,
+          "electronics_mouse": 0.9688196182250977,
+          "footwear_sneakers": 0.9748743772506714,
+          "stationery_calculator": 0.9707112908363342,
+          "stationery_notebook": 0.9978768825531006,
+          "tableware_mug": 0.9728997349739075,
+          "tableware_waterbottle": 0.9788519740104675,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9868420958518982
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.7872433662414551,
+        "per_attribute": {
+          "color:black": 0.7346014380455017,
+          "color:blue": 0.7663043737411499,
+          "color:brown": 0.6711956262588501,
+          "color:green": 0.7306763529777527,
+          "color:grey": 0.6763284802436829,
+          "color:red": 0.8052536249160767,
+          "color:silver": 0.8079710006713867,
+          "color:transparent": 0.7904589176177979,
+          "color:unknown": 0.7158816456794739,
+          "color:white": 0.7974033951759338,
+          "material:fabric": 0.9399154782295227,
+          "material:glass": 0.8885869383811951,
+          "material:leather": 0.6675724387168884,
+          "material:metal": 0.7590579986572266,
+          "material:plastic": 0.79076087474823,
+          "material:unknown": 0.7977052927017212,
+          "material:wood": 0.8493357300758362,
+          "pattern:striped": 0.8125,
+          "pattern:textured": 0.8864734172821045,
+          "pattern:unknown": 0.8568840622901917
+        }
+      },
+      "f1": {
+        "overall": 0.4141792058944702,
+        "per_attribute": {
+          "color:black": 0.6735982298851013,
+          "color:blue": 0.46694216132164,
+          "color:brown": 0.19033457338809967,
+          "color:green": 0.28180354833602905,
+          "color:grey": 0.22093023359775543,
+          "color:red": 0.25776755809783936,
+          "color:silver": 0.37890625,
+          "color:transparent": 0.2022988498210907,
+          "color:unknown": 0.44154301285743713,
+          "color:white": 0.4981301426887512,
+          "material:fabric": 0.8767802119255066,
+          "material:glass": 0.5393258333206177,
+          "material:leather": 0.1826280653476715,
+          "material:metal": 0.5852391123771667,
+          "material:plastic": 0.7372013926506042,
+          "material:unknown": 0.47981366515159607,
+          "material:wood": 0.18330605328083038,
+          "pattern:striped": 0.03120124712586403,
+          "pattern:textured": 0.13364055752754211,
+          "pattern:unknown": 0.9221930503845215
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 1.071807608800234,
+      "mrr": 0.750266062464691,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 2,
+    "split": "val",
+    "loss": 1.7108036338761665,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9718173146247864,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9399999976158142,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9856630563735962,
+          "stationery_calculator": 0.875,
+          "stationery_notebook": 0.9563758373260498,
+          "tableware_mug": 0.9795918464660645,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.950190007686615,
+        "per_class": {
+          "clothing_wristwatch": 0.978723406791687,
+          "electronics_keyboard": 0.9494949579238892,
+          "electronics_mouse": 0.9203540086746216,
+          "footwear_sneakers": 0.9909909963607788,
+          "stationery_calculator": 0.800000011920929,
+          "stationery_notebook": 0.9760273694992065,
+          "tableware_mug": 0.9896907210350037,
+          "tableware_waterbottle": 0.9750000238418579,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9714285731315613
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.8331875801086426,
+        "per_attribute": {
+          "color:black": 0.8066083788871765,
+          "color:blue": 0.7570456862449646,
+          "color:brown": 0.7482993006706238,
+          "color:green": 0.8153547048568726,
+          "color:grey": 0.7230320572853088,
+          "color:red": 0.8153547048568726,
+          "color:silver": 0.9086491465568542,
+          "color:transparent": 0.9533527493476868,
+          "color:unknown": 0.6530612111091614,
+          "color:white": 0.7891156673431396,
+          "material:fabric": 0.9037901163101196,
+          "material:glass": 0.9902818202972412,
+          "material:leather": 0.6540330648422241,
+          "material:metal": 0.8911564350128174,
+          "material:plastic": 0.8551992177963257,
+          "material:unknown": 0.8104956150054932,
+          "material:wood": 0.705539345741272,
+          "pattern:striped": 0.9650145769119263,
+          "pattern:textured": 0.9620991349220276,
+          "pattern:unknown": 0.9562682509422302
+        }
+      },
+      "f1": {
+        "overall": 0.4735836982727051,
+        "per_attribute": {
+          "color:black": 0.7007519006729126,
+          "color:blue": 0.3990384638309479,
+          "color:brown": 0.27450981736183167,
+          "color:green": 0.4722222089767456,
+          "color:grey": 0.19718310236930847,
+          "color:red": 0.23999999463558197,
+          "color:silver": 0.3561643958091736,
+          "color:transparent": 0.3333333432674408,
+          "color:unknown": 0.4921763837337494,
+          "color:white": 0.482100248336792,
+          "material:fabric": 0.8455538153648376,
+          "material:glass": 0.9019607901573181,
+          "material:leather": 0.23931623995304108,
+          "material:metal": 0.5912408828735352,
+          "material:plastic": 0.7002012133598328,
+          "material:unknown": 0.7396528720855713,
+          "material:wood": 0.05607476457953453,
+          "pattern:striped": 0.1818181872367859,
+          "pattern:textured": 0.290909081697464,
+          "pattern:unknown": 0.9774662256240845
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.8905379781454252,
+      "mrr": 0.36089277383305707,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 3,
+    "split": "train",
+    "loss": 1.2487659529211441,
+    "classification": {
+      "accuracy": {
+        "overall": 0.989130437374115,
+        "per_class": {
+          "clothing_wristwatch": 0.9913606643676758,
+          "electronics_keyboard": 0.987500011920929,
+          "electronics_mouse": 0.9910314083099365,
+          "footwear_sneakers": 0.9924623370170593,
+          "stationery_calculator": 0.9674796462059021,
+          "stationery_notebook": 0.991525411605835,
+          "tableware_mug": 0.973045825958252,
+          "tableware_waterbottle": 0.9969696998596191,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9890109896659851
+        }
+      },
+      "f1": {
+        "overall": 0.9883816838264465,
+        "per_class": {
+          "clothing_wristwatch": 0.9935064911842346,
+          "electronics_keyboard": 0.9937106966972351,
+          "electronics_mouse": 0.9899216294288635,
+          "footwear_sneakers": 0.9912170767784119,
+          "stationery_calculator": 0.9794238805770874,
+          "stationery_notebook": 0.9852631688117981,
+          "tableware_mug": 0.9849931597709656,
+          "tableware_waterbottle": 0.9894737005233765,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9879253506660461
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.8498339653015137,
+        "per_attribute": {
+          "color:black": 0.8432971239089966,
+          "color:blue": 0.8798308968544006,
+          "color:brown": 0.7916666865348816,
+          "color:green": 0.908816397190094,
+          "color:grey": 0.653683602809906,
+          "color:red": 0.9021739363670349,
+          "color:silver": 0.8731883764266968,
+          "color:transparent": 0.9079106450080872,
+          "color:unknown": 0.7469806671142578,
+          "color:white": 0.8511473536491394,
+          "material:fabric": 0.9477657079696655,
+          "material:glass": 0.9109299778938293,
+          "material:leather": 0.7228260636329651,
+          "material:metal": 0.8058574795722961,
+          "material:plastic": 0.8212560415267944,
+          "material:unknown": 0.8291062712669373,
+          "material:wood": 0.8819444179534912,
+          "pattern:striped": 0.9172705411911011,
+          "pattern:textured": 0.9133453965187073,
+          "pattern:unknown": 0.8876811861991882
+        }
+      },
+      "f1": {
+        "overall": 0.49300312995910645,
+        "per_attribute": {
+          "color:black": 0.7866830825805664,
+          "color:blue": 0.6502636075019836,
+          "color:brown": 0.2871900796890259,
+          "color:green": 0.5339506268501282,
+          "color:grey": 0.22760942578315735,
+          "color:red": 0.40875911712646484,
+          "color:silver": 0.4852941036224365,
+          "color:transparent": 0.3659043610095978,
+          "color:unknown": 0.47820672392845154,
+          "color:white": 0.5935696363449097,
+          "material:fabric": 0.89194256067276,
+          "material:glass": 0.6018893122673035,
+          "material:leather": 0.2045060694217682,
+          "material:metal": 0.630672037601471,
+          "material:plastic": 0.7694703936576843,
+          "material:unknown": 0.5360655784606934,
+          "material:wood": 0.22574257850646973,
+          "pattern:striped": 0.07432432472705841,
+          "pattern:textured": 0.16811594367027283,
+          "pattern:unknown": 0.9399030804634094
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.7941105383029883,
+      "mrr": 0.8290538747529477,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 3,
+    "split": "val",
+    "loss": 1.511794779576412,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9805636405944824,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9900000095367432,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9892473220825195,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9597315192222595,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9762058258056641,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9658536314964294,
+          "electronics_mouse": 0.9541284441947937,
+          "footwear_sneakers": 0.9928057789802551,
+          "stationery_calculator": 0.9677419066429138,
+          "stationery_notebook": 0.9777777791023254,
+          "tableware_mug": 0.9800000190734863,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.8768707513809204,
+        "per_attribute": {
+          "color:black": 0.8726919293403625,
+          "color:blue": 0.820213794708252,
+          "color:brown": 0.9047619104385376,
+          "color:green": 0.9164237380027771,
+          "color:grey": 0.8454810380935669,
+          "color:red": 0.9261418581008911,
+          "color:silver": 0.9397473335266113,
+          "color:transparent": 0.9834790825843811,
+          "color:unknown": 0.6209912300109863,
+          "color:white": 0.8221574425697327,
+          "material:fabric": 0.9057337045669556,
+          "material:glass": 0.9834790825843811,
+          "material:leather": 0.7434402108192444,
+          "material:metal": 0.909621000289917,
+          "material:plastic": 0.8620019555091858,
+          "material:unknown": 0.7560738325119019,
+          "material:wood": 0.8347910642623901,
+          "pattern:striped": 0.9698736667633057,
+          "pattern:textured": 0.9630709290504456,
+          "pattern:unknown": 0.9572400450706482
+        }
+      },
+      "f1": {
+        "overall": 0.53581702709198,
+        "per_attribute": {
+          "color:black": 0.7827529311180115,
+          "color:blue": 0.4846796691417694,
+          "color:brown": 0.4367816150188446,
+          "color:green": 0.656000018119812,
+          "color:grey": 0.286995530128479,
+          "color:red": 0.44117647409439087,
+          "color:silver": 0.4363636374473572,
+          "color:transparent": 0.5853658318519592,
+          "color:unknown": 0.4895288050174713,
+          "color:white": 0.5611510872840881,
+          "material:fabric": 0.848673939704895,
+          "material:glass": 0.8440366983413696,
+          "material:leather": 0.2625698447227478,
+          "material:metal": 0.6141079068183899,
+          "material:plastic": 0.7182539701461792,
+          "material:unknown": 0.692778468132019,
+          "material:wood": 0.09574468433856964,
+          "pattern:striped": 0.20512820780277252,
+          "pattern:textured": 0.29629629850387573,
+          "pattern:unknown": 0.9779559373855591
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.8657764927407166,
+      "mrr": 0.38133281475137576,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 4,
+    "split": "train",
+    "loss": 0.9532981261538999,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9927536249160767,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9910314083099365,
+          "footwear_sneakers": 0.9974874258041382,
+          "stationery_calculator": 0.9918699264526367,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9784366488456726,
+          "tableware_waterbottle": 0.989393949508667,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9934065937995911
+        }
+      },
+      "f1": {
+        "overall": 0.9936349391937256,
+        "per_class": {
+          "clothing_wristwatch": 0.994629442691803,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9910314083099365,
+          "footwear_sneakers": 0.9974874258041382,
+          "stationery_calculator": 0.9959183931350708,
+          "stationery_notebook": 0.9936842322349548,
+          "tableware_mug": 0.9864130616188049,
+          "tableware_waterbottle": 0.9901440739631653,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9934065937995911
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.8915911912918091,
+        "per_attribute": {
+          "color:black": 0.8837560415267944,
+          "color:blue": 0.9079106450080872,
+          "color:brown": 0.8813405632972717,
+          "color:green": 0.9474637508392334,
+          "color:grey": 0.79076087474823,
+          "color:red": 0.9405193328857422,
+          "color:silver": 0.9142512083053589,
+          "color:transparent": 0.9601449370384216,
+          "color:unknown": 0.7635869383811951,
+          "color:white": 0.8970410823822021,
+          "material:fabric": 0.9538043737411499,
+          "material:glass": 0.9251207709312439,
+          "material:leather": 0.8094806671142578,
+          "material:metal": 0.833031415939331,
+          "material:plastic": 0.8384661674499512,
+          "material:unknown": 0.841183602809906,
+          "material:wood": 0.9390096664428711,
+          "pattern:striped": 0.9547101259231567,
+          "pattern:textured": 0.9375,
+          "pattern:unknown": 0.9127415418624878
+        }
+      },
+      "f1": {
+        "overall": 0.5700430274009705,
+        "per_attribute": {
+          "color:black": 0.8312143683433533,
+          "color:blue": 0.7092468738555908,
+          "color:brown": 0.42627736926078796,
+          "color:green": 0.6813187003135681,
+          "color:grey": 0.3185840845108032,
+          "color:red": 0.5320665240287781,
+          "color:silver": 0.5847952961921692,
+          "color:transparent": 0.5796178579330444,
+          "color:unknown": 0.5245901346206665,
+          "color:white": 0.6810103058815002,
+          "material:fabric": 0.9032257795333862,
+          "material:glass": 0.6497175097465515,
+          "material:leather": 0.27052024006843567,
+          "material:metal": 0.6662643551826477,
+          "material:plastic": 0.788118839263916,
+          "material:unknown": 0.573051929473877,
+          "material:wood": 0.3607594966888428,
+          "pattern:striped": 0.14772726595401764,
+          "pattern:textured": 0.2188679277896881,
+          "pattern:unknown": 0.9538854360580444
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.6200404443602631,
+      "mrr": 0.869741359770586,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 4,
+    "split": "val",
+    "loss": 1.4179276051859582,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9815354943275452,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9900000095367432,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9928315281867981,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9597315192222595,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9746835231781006,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9769823551177979,
+        "per_class": {
+          "clothing_wristwatch": 0.9790209531784058,
+          "electronics_keyboard": 0.970588207244873,
+          "electronics_mouse": 0.9629629850387573,
+          "footwear_sneakers": 0.9946140050888062,
+          "stationery_calculator": 0.9677419066429138,
+          "stationery_notebook": 0.9777777791023254,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9871794581413269,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.8952866792678833,
+        "per_attribute": {
+          "color:black": 0.8969873785972595,
+          "color:blue": 0.9018464684486389,
+          "color:brown": 0.9290573596954346,
+          "color:green": 0.8969873785972595,
+          "color:grey": 0.8367347121238708,
+          "color:red": 0.941690981388092,
+          "color:silver": 0.9484936594963074,
+          "color:transparent": 0.9902818202972412,
+          "color:unknown": 0.6404275894165039,
+          "color:white": 0.8483964800834656,
+          "material:fabric": 0.9057337045669556,
+          "material:glass": 0.9873663783073425,
+          "material:leather": 0.8046647310256958,
+          "material:metal": 0.910592794418335,
+          "material:plastic": 0.8590865135192871,
+          "material:unknown": 0.7813411355018616,
+          "material:wood": 0.9057337045669556,
+          "pattern:striped": 0.9873663783073425,
+          "pattern:textured": 0.9698736667633057,
+          "pattern:unknown": 0.9630709290504456
+        }
+      },
+      "f1": {
+        "overall": 0.5769010186195374,
+        "per_attribute": {
+          "color:black": 0.8140350580215454,
+          "color:blue": 0.6300366520881653,
+          "color:brown": 0.5290322303771973,
+          "color:green": 0.6102941036224365,
+          "color:grey": 0.2881355881690979,
+          "color:red": 0.5,
+          "color:silver": 0.48543688654899597,
+          "color:transparent": 0.6875,
+          "color:unknown": 0.5105820298194885,
+          "color:white": 0.6020408272743225,
+          "material:fabric": 0.848673939704895,
+          "material:glass": 0.8761904835700989,
+          "material:leather": 0.25278809666633606,
+          "material:metal": 0.6290322542190552,
+          "material:plastic": 0.6997929811477661,
+          "material:unknown": 0.7155499458312988,
+          "material:wood": 0.156521737575531,
+          "pattern:striped": 0.380952388048172,
+          "pattern:textured": 0.3404255211353302,
+          "pattern:unknown": 0.9810000061988831
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.811100738157452,
+      "mrr": 0.3841444069720566,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 5,
+    "split": "train",
+    "loss": 0.7345204402283194,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9969806671142578,
+        "per_class": {
+          "clothing_wristwatch": 0.9956803321838379,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.9974874258041382,
+          "stationery_calculator": 0.9918699264526367,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9934065937995911
+        }
+      },
+      "f1": {
+        "overall": 0.996898889541626,
+        "per_class": {
+          "clothing_wristwatch": 0.9978355169296265,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9988776445388794,
+          "footwear_sneakers": 0.9962359070777893,
+          "stationery_calculator": 0.9959183931350708,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9973118305206299,
+          "tableware_waterbottle": 0.995468258857727,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.996692419052124
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9204860925674438,
+        "per_attribute": {
+          "color:black": 0.9103260636329651,
+          "color:blue": 0.9396135210990906,
+          "color:brown": 0.9214975833892822,
+          "color:green": 0.966183602809906,
+          "color:grey": 0.8508453965187073,
+          "color:red": 0.9589372277259827,
+          "color:silver": 0.9426328539848328,
+          "color:transparent": 0.967391312122345,
+          "color:unknown": 0.8091787695884705,
+          "color:white": 0.9251207709312439,
+          "material:fabric": 0.9547101259231567,
+          "material:glass": 0.9371980428695679,
+          "material:leather": 0.8568840622901917,
+          "material:metal": 0.8556763529777527,
+          "material:plastic": 0.8547705411911011,
+          "material:unknown": 0.8961352705955505,
+          "material:wood": 0.9658816456794739,
+          "pattern:striped": 0.9852052927017212,
+          "pattern:textured": 0.9601449370384216,
+          "pattern:unknown": 0.9513888955116272
+        }
+      },
+      "f1": {
+        "overall": 0.6445037126541138,
+        "per_attribute": {
+          "color:black": 0.866995096206665,
+          "color:blue": 0.7955009937286377,
+          "color:brown": 0.5340501666069031,
+          "color:green": 0.7704917788505554,
+          "color:grey": 0.40909090638160706,
+          "color:red": 0.6263736486434937,
+          "color:silver": 0.6790540814399719,
+          "color:transparent": 0.6275861859321594,
+          "color:unknown": 0.5853018164634705,
+          "color:white": 0.7494949698448181,
+          "material:fabric": 0.9045801758766174,
+          "material:glass": 0.692307710647583,
+          "material:leather": 0.3323943614959717,
+          "material:metal": 0.7019950151443481,
+          "material:plastic": 0.8079840540885925,
+          "material:unknown": 0.6736242771148682,
+          "material:wood": 0.5065501928329468,
+          "pattern:striped": 0.3466666638851166,
+          "pattern:textured": 0.3052631616592407,
+          "pattern:unknown": 0.9747688174247742
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.4859067765986862,
+      "mrr": 0.8987721584845281,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 5,
+    "split": "val",
+    "loss": 1.4235653681472393,
+    "classification": {
+      "accuracy": {
+        "overall": 0.967930018901825,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9800000190734863,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9856630563735962,
+          "stationery_calculator": 0.875,
+          "stationery_notebook": 0.936241626739502,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9620253443717957,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9882352948188782
+        }
+      },
+      "f1": {
+        "overall": 0.9557268023490906,
+        "per_class": {
+          "clothing_wristwatch": 0.9650349617004395,
+          "electronics_keyboard": 0.9702970385551453,
+          "electronics_mouse": 0.8595041036605835,
+          "footwear_sneakers": 0.9927797913551331,
+          "stationery_calculator": 0.9333333373069763,
+          "stationery_notebook": 0.9653978943824768,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9681528806686401,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9767441749572754
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.915549099445343,
+        "per_attribute": {
+          "color:black": 0.9008746147155762,
+          "color:blue": 0.9348882436752319,
+          "color:brown": 0.941690981388092,
+          "color:green": 0.9552963972091675,
+          "color:grey": 0.9086491465568542,
+          "color:red": 0.9397473335266113,
+          "color:silver": 0.94266277551651,
+          "color:transparent": 0.9922254681587219,
+          "color:unknown": 0.6909620761871338,
+          "color:white": 0.8658891916275024,
+          "material:fabric": 0.9076773524284363,
+          "material:glass": 0.9902818202972412,
+          "material:leather": 0.8581146597862244,
+          "material:metal": 0.9115646481513977,
+          "material:plastic": 0.8639456033706665,
+          "material:unknown": 0.7862001657485962,
+          "material:wood": 0.9659863710403442,
+          "pattern:striped": 0.9961127042770386,
+          "pattern:textured": 0.9805636405944824,
+          "pattern:unknown": 0.9776481986045837
+        }
+      },
+      "f1": {
+        "overall": 0.6351184844970703,
+        "per_attribute": {
+          "color:black": 0.8305647969245911,
+          "color:blue": 0.6968325972557068,
+          "color:brown": 0.577464759349823,
+          "color:green": 0.75789475440979,
+          "color:grey": 0.4268292784690857,
+          "color:red": 0.49180328845977783,
+          "color:silver": 0.46846845746040344,
+          "color:transparent": 0.7333333492279053,
+          "color:unknown": 0.5364431738853455,
+          "color:white": 0.6290322542190552,
+          "material:fabric": 0.8508633971214294,
+          "material:glass": 0.8979591727256775,
+          "material:leather": 0.28431373834609985,
+          "material:metal": 0.6374502182006836,
+          "material:plastic": 0.7244094610214233,
+          "material:unknown": 0.7193877696990967,
+          "material:wood": 0.3396226465702057,
+          "pattern:striped": 0.6666666865348816,
+          "pattern:textured": 0.4444444477558136,
+          "pattern:unknown": 0.9885855913162231
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7993287092510997,
+      "mrr": 0.3956442609125254,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 6,
+    "split": "train",
+    "loss": 0.5892094690442661,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9963768124580383,
+        "per_class": {
+          "clothing_wristwatch": 0.997840166091919,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9924623370170593,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.991525411605835,
+          "tableware_mug": 0.9892183542251587,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.995976448059082,
+        "per_class": {
+          "clothing_wristwatch": 0.998918890953064,
+          "electronics_keyboard": 0.9906542301177979,
+          "electronics_mouse": 0.9977628588676453,
+          "footwear_sneakers": 0.9937106966972351,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.993630588054657,
+          "tableware_mug": 0.9932340979576111,
+          "tableware_waterbottle": 0.9969742894172668,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9989023208618164
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9392663240432739,
+        "per_attribute": {
+          "color:black": 0.929347813129425,
+          "color:blue": 0.9528985619544983,
+          "color:brown": 0.9402173757553101,
+          "color:green": 0.970108687877655,
+          "color:grey": 0.9196860194206238,
+          "color:red": 0.9749395847320557,
+          "color:silver": 0.9417270421981812,
+          "color:transparent": 0.9761473536491394,
+          "color:unknown": 0.8445048332214355,
+          "color:white": 0.945652186870575,
+          "material:fabric": 0.95652174949646,
+          "material:glass": 0.9474637508392334,
+          "material:leather": 0.9021739363670349,
+          "material:metal": 0.8891907930374146,
+          "material:plastic": 0.8756038546562195,
+          "material:unknown": 0.9260265827178955,
+          "material:wood": 0.9839975833892822,
+          "pattern:striped": 0.9897342920303345,
+          "pattern:textured": 0.9667874574661255,
+          "pattern:unknown": 0.9525966048240662
+        }
+      },
+      "f1": {
+        "overall": 0.7048402428627014,
+        "per_attribute": {
+          "color:black": 0.8921658992767334,
+          "color:blue": 0.8336886763572693,
+          "color:brown": 0.6071428656578064,
+          "color:green": 0.7898089289665222,
+          "color:grey": 0.5737179517745972,
+          "color:red": 0.7313916087150574,
+          "color:silver": 0.6756302714347839,
+          "color:transparent": 0.704119861125946,
+          "color:unknown": 0.6406140923500061,
+          "color:white": 0.8039215803146362,
+          "material:fabric": 0.9082802534103394,
+          "material:glass": 0.7281249761581421,
+          "material:leather": 0.42756184935569763,
+          "material:metal": 0.7574355602264404,
+          "material:plastic": 0.8336026072502136,
+          "material:unknown": 0.7492323517799377,
+          "material:wood": 0.6863905191421509,
+          "pattern:striped": 0.4333333373069763,
+          "pattern:textured": 0.3452380895614624,
+          "pattern:unknown": 0.9754034280776978
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.40048399510015037,
+      "mrr": 0.9194151001851916,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 6,
+    "split": "val",
+    "loss": 1.4383148724761718,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9834790825843811,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9964157938957214,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9765100479125977,
+          "tableware_mug": 0.9795918464660645,
+          "tableware_waterbottle": 0.9746835231781006,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9748916625976562,
+        "per_class": {
+          "clothing_wristwatch": 0.9650349617004395,
+          "electronics_keyboard": 0.9748743772506714,
+          "electronics_mouse": 0.9719626307487488,
+          "footwear_sneakers": 0.9946332573890686,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9847715497016907,
+          "tableware_mug": 0.9696969985961914,
+          "tableware_waterbottle": 0.9871794581413269,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9207482933998108,
+        "per_attribute": {
+          "color:black": 0.9018464684486389,
+          "color:blue": 0.9057337045669556,
+          "color:brown": 0.9329445958137512,
+          "color:green": 0.9552963972091675,
+          "color:grey": 0.94266277551651,
+          "color:red": 0.966958224773407,
+          "color:silver": 0.9455782175064087,
+          "color:transparent": 0.991253674030304,
+          "color:unknown": 0.6841593980789185,
+          "color:white": 0.9135082364082336,
+          "material:fabric": 0.9067055583000183,
+          "material:glass": 0.991253674030304,
+          "material:leather": 0.8872691988945007,
+          "material:metal": 0.9203109741210938,
+          "material:plastic": 0.8668610453605652,
+          "material:unknown": 0.7862001657485962,
+          "material:wood": 0.9582118391990662,
+          "pattern:striped": 0.9922254681587219,
+          "pattern:textured": 0.9834790825843811,
+          "pattern:unknown": 0.9825072884559631
+        }
+      },
+      "f1": {
+        "overall": 0.6387584805488586,
+        "per_attribute": {
+          "color:black": 0.826161801815033,
+          "color:blue": 0.6339622735977173,
+          "color:brown": 0.5605095624923706,
+          "color:green": 0.7604166865348816,
+          "color:grey": 0.5203251838684082,
+          "color:red": 0.6304348111152649,
+          "color:silver": 0.4716981053352356,
+          "color:transparent": 0.7096773982048035,
+          "color:unknown": 0.535050094127655,
+          "color:white": 0.7174603343009949,
+          "material:fabric": 0.849056601524353,
+          "material:glass": 0.9052631855010986,
+          "material:leather": 0.2926829159259796,
+          "material:metal": 0.6525423526763916,
+          "material:plastic": 0.7209776043891907,
+          "material:unknown": 0.7179487347602844,
+          "material:wood": 0.2950819730758667,
+          "pattern:striped": 0.5,
+          "pattern:textured": 0.4848484992980957,
+          "pattern:unknown": 0.9910714030265808
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.799461338100674,
+      "mrr": 0.399310503803027,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 7,
+    "split": "train",
+    "loss": 0.4725022526178959,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9972826242446899,
+        "per_class": {
+          "clothing_wristwatch": 0.9935204982757568,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9946091771125793,
+          "tableware_waterbottle": 0.9969696998596191,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9977259039878845,
+        "per_class": {
+          "clothing_wristwatch": 0.9945945739746094,
+          "electronics_keyboard": 0.9968652129173279,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9959514141082764,
+          "tableware_waterbottle": 0.9954614043235779,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9989023208618164
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9545139074325562,
+        "per_attribute": {
+          "color:black": 0.9423308968544006,
+          "color:blue": 0.967391312122345,
+          "color:brown": 0.9640700221061707,
+          "color:green": 0.9842995405197144,
+          "color:grey": 0.9344806671142578,
+          "color:red": 0.9827898740768433,
+          "color:silver": 0.9577294588088989,
+          "color:transparent": 0.9800724387168884,
+          "color:unknown": 0.8867753744125366,
+          "color:white": 0.9538043737411499,
+          "material:fabric": 0.9586352705955505,
+          "material:glass": 0.9516907930374146,
+          "material:leather": 0.9341787695884705,
+          "material:metal": 0.9094203114509583,
+          "material:plastic": 0.8973429799079895,
+          "material:unknown": 0.9498792290687561,
+          "material:wood": 0.9888284802436829,
+          "pattern:striped": 0.991847813129425,
+          "pattern:textured": 0.9818840622901917,
+          "pattern:unknown": 0.9728260636329651
+        }
+      },
+      "f1": {
+        "overall": 0.7612369656562805,
+        "per_attribute": {
+          "color:black": 0.9125057458877563,
+          "color:blue": 0.8794642686843872,
+          "color:brown": 0.7173396944999695,
+          "color:green": 0.8790697455406189,
+          "color:grey": 0.6252158880233765,
+          "color:red": 0.800000011920929,
+          "color:silver": 0.7463768124580383,
+          "color:transparent": 0.7338709831237793,
+          "color:unknown": 0.7156937122344971,
+          "color:white": 0.8278965353965759,
+          "material:fabric": 0.9121231436729431,
+          "material:glass": 0.7435897588729858,
+          "material:leather": 0.5321888327598572,
+          "material:metal": 0.794801652431488,
+          "material:plastic": 0.8603122234344482,
+          "material:unknown": 0.8179824352264404,
+          "material:wood": 0.758169949054718,
+          "pattern:striped": 0.49056604504585266,
+          "pattern:textured": 0.49152541160583496,
+          "pattern:unknown": 0.9860464930534363
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.36719284037461025,
+      "mrr": 0.9290034903420342,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 7,
+    "split": "val",
+    "loss": 1.605184727524877,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9815354943275452,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9800000190734863,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9856630563735962,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9697986841201782,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.976982831954956,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9751243591308594,
+          "electronics_mouse": 0.9811320900917053,
+          "footwear_sneakers": 0.9927797913551331,
+          "stationery_calculator": 0.9677419066429138,
+          "stationery_notebook": 0.9796609878540039,
+          "tableware_mug": 0.9607843160629272,
+          "tableware_waterbottle": 0.9811320900917053,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9327016472816467,
+        "per_attribute": {
+          "color:black": 0.9067055583000183,
+          "color:blue": 0.9232264161109924,
+          "color:brown": 0.9523809552192688,
+          "color:green": 0.94266277551651,
+          "color:grey": 0.9407191276550293,
+          "color:red": 0.9708454608917236,
+          "color:silver": 0.9543246030807495,
+          "color:transparent": 0.9961127042770386,
+          "color:unknown": 0.7560738325119019,
+          "color:white": 0.8726919293403625,
+          "material:fabric": 0.9008746147155762,
+          "material:glass": 0.9941691160202026,
+          "material:leather": 0.9125364422798157,
+          "material:metal": 0.9290573596954346,
+          "material:plastic": 0.861030101776123,
+          "material:unknown": 0.88532555103302,
+          "material:wood": 0.9834790825843811,
+          "pattern:striped": 0.9970845580101013,
+          "pattern:textured": 0.9873663783073425,
+          "pattern:unknown": 0.9873663783073425
+        }
+      },
+      "f1": {
+        "overall": 0.6771315336227417,
+        "per_attribute": {
+          "color:black": 0.8303886651992798,
+          "color:blue": 0.6775510311126709,
+          "color:brown": 0.6259542107582092,
+          "color:green": 0.7203791737556458,
+          "color:grey": 0.5196850299835205,
+          "color:red": 0.6341463327407837,
+          "color:silver": 0.47191011905670166,
+          "color:transparent": 0.8461538553237915,
+          "color:unknown": 0.5891980528831482,
+          "color:white": 0.6135693192481995,
+          "material:fabric": 0.8370606899261475,
+          "material:glass": 0.9375,
+          "material:leather": 0.23728813230991364,
+          "material:metal": 0.6666666865348816,
+          "material:plastic": 0.7234042286872864,
+          "material:unknown": 0.8249258399009705,
+          "material:wood": 0.5142857432365417,
+          "pattern:striped": 0.7272727489471436,
+          "pattern:textured": 0.5517241358757019,
+          "pattern:unknown": 0.9935675263404846
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.827118873016943,
+      "mrr": 0.40058754368588345,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 8,
+    "split": "train",
+    "loss": 0.375001532300083,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9978864789009094,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.9949748516082764,
+          "stationery_calculator": 0.9918699264526367,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9969696998596191,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9975593686103821,
+        "per_class": {
+          "clothing_wristwatch": 0.9978448152542114,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.997481107711792,
+          "stationery_calculator": 0.9959183931350708,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9986541271209717,
+          "tableware_waterbottle": 0.9977255463600159,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9989023208618164
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9666515588760376,
+        "per_attribute": {
+          "color:black": 0.9571256041526794,
+          "color:blue": 0.9773550629615784,
+          "color:brown": 0.9658816456794739,
+          "color:green": 0.990338146686554,
+          "color:grey": 0.9631642699241638,
+          "color:red": 0.9858092069625854,
+          "color:silver": 0.9704106450080872,
+          "color:transparent": 0.9867149591445923,
+          "color:unknown": 0.9208937287330627,
+          "color:white": 0.9631642699241638,
+          "material:fabric": 0.9652777910232544,
+          "material:glass": 0.9643719792366028,
+          "material:leather": 0.9504830837249756,
+          "material:metal": 0.9341787695884705,
+          "material:plastic": 0.9166666865348816,
+          "material:unknown": 0.966183602809906,
+          "material:wood": 0.9912439584732056,
+          "pattern:striped": 0.9972826242446899,
+          "pattern:textured": 0.9852052927017212,
+          "pattern:unknown": 0.9812802076339722
+        }
+      },
+      "f1": {
+        "overall": 0.8173668384552002,
+        "per_attribute": {
+          "color:black": 0.9339534640312195,
+          "color:blue": 0.9144811630249023,
+          "color:brown": 0.7341176271438599,
+          "color:green": 0.9230769276618958,
+          "color:grey": 0.7458333373069763,
+          "color:red": 0.8278388381004333,
+          "color:silver": 0.8070865869522095,
+          "color:transparent": 0.8103448152542114,
+          "color:unknown": 0.7893890738487244,
+          "color:white": 0.8600917458534241,
+          "material:fabric": 0.9258542656898499,
+          "material:glass": 0.8006756901741028,
+          "material:leather": 0.6019417643547058,
+          "material:metal": 0.8415697813034058,
+          "material:plastic": 0.8856669664382935,
+          "material:unknown": 0.8700696229934692,
+          "material:wood": 0.800000011920929,
+          "pattern:striped": 0.7428571581840515,
+          "pattern:textured": 0.5420560836791992,
+          "pattern:unknown": 0.99043208360672
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.33206337431202765,
+      "mrr": 0.9377566495379388,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 8,
+    "split": "val",
+    "loss": 1.767984497072166,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9737609624862671,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.949999988079071,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9820788502693176,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9563758373260498,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9882352948188782
+        }
+      },
+      "f1": {
+        "overall": 0.9633362293243408,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9595959782600403,
+          "electronics_mouse": 0.8965517282485962,
+          "footwear_sneakers": 0.9909583926200867,
+          "stationery_calculator": 0.9411764740943909,
+          "stationery_notebook": 0.9760273694992065,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9811320900917053,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9824561476707458
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9328960180282593,
+        "per_attribute": {
+          "color:black": 0.9047619104385376,
+          "color:blue": 0.9358600378036499,
+          "color:brown": 0.9562682509422302,
+          "color:green": 0.9611272811889648,
+          "color:grey": 0.9232264161109924,
+          "color:red": 0.9776481986045837,
+          "color:silver": 0.9504373073577881,
+          "color:transparent": 0.9961127042770386,
+          "color:unknown": 0.7881438136100769,
+          "color:white": 0.8726919293403625,
+          "material:fabric": 0.8969873785972595,
+          "material:glass": 0.9931972622871399,
+          "material:leather": 0.9251700639724731,
+          "material:metal": 0.9193391799926758,
+          "material:plastic": 0.8678328394889832,
+          "material:unknown": 0.8299319744110107,
+          "material:wood": 0.9854227304458618,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9863945841789246,
+          "pattern:unknown": 0.9873663783073425
+        }
+      },
+      "f1": {
+        "overall": 0.6927013397216797,
+        "per_attribute": {
+          "color:black": 0.8344594836235046,
+          "color:blue": 0.7027027010917664,
+          "color:brown": 0.5871559381484985,
+          "color:green": 0.7938144207000732,
+          "color:grey": 0.45517241954803467,
+          "color:red": 0.6849315166473389,
+          "color:silver": 0.49504950642585754,
+          "color:transparent": 0.8461538553237915,
+          "color:unknown": 0.6007326245307922,
+          "color:white": 0.6309859156608582,
+          "material:fabric": 0.8221476674079895,
+          "material:glass": 0.9263157844543457,
+          "material:leather": 0.25242719054222107,
+          "material:metal": 0.6639676094055176,
+          "material:plastic": 0.722449004650116,
+          "material:unknown": 0.7631934881210327,
+          "material:wood": 0.5454545617103577,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.5333333611488342,
+          "pattern:unknown": 0.9935802221298218
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.8114008261696357,
+      "mrr": 0.40596039024108355,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 9,
+    "split": "train",
+    "loss": 0.3054679465178706,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9993961453437805,
+        "per_class": {
+          "clothing_wristwatch": 0.997840166091919,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9995511770248413,
+        "per_class": {
+          "clothing_wristwatch": 0.997840166091919,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9988776445388794,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9992430210113525,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9734601378440857,
+        "per_attribute": {
+          "color:black": 0.9631642699241638,
+          "color:blue": 0.9818840622901917,
+          "color:brown": 0.9797705411911011,
+          "color:green": 0.9921497702598572,
+          "color:grey": 0.9734299778938293,
+          "color:red": 0.9921497702598572,
+          "color:silver": 0.9764492511749268,
+          "color:transparent": 0.9894323945045471,
+          "color:unknown": 0.9417270421981812,
+          "color:white": 0.9728260636329651,
+          "material:fabric": 0.9679951667785645,
+          "material:glass": 0.9731280207633972,
+          "material:leather": 0.9610507488250732,
+          "material:metal": 0.938707709312439,
+          "material:plastic": 0.9317632913589478,
+          "material:unknown": 0.9695048332214355,
+          "material:wood": 0.9927536249160767,
+          "pattern:striped": 0.9981883764266968,
+          "pattern:textured": 0.990338146686554,
+          "pattern:unknown": 0.9827898740768433
+        }
+      },
+      "f1": {
+        "overall": 0.8542271256446838,
+        "per_attribute": {
+          "color:black": 0.9429373145103455,
+          "color:blue": 0.9303944110870361,
+          "color:brown": 0.8203753232955933,
+          "color:green": 0.936274528503418,
+          "color:grey": 0.8035714030265808,
+          "color:red": 0.8976377844810486,
+          "color:silver": 0.8395061492919922,
+          "color:transparent": 0.8401826620101929,
+          "color:unknown": 0.8365791440010071,
+          "color:white": 0.8946135640144348,
+          "material:fabric": 0.9311688542366028,
+          "material:glass": 0.8413547277450562,
+          "material:leather": 0.6522911190986633,
+          "material:metal": 0.8540618419647217,
+          "material:plastic": 0.9058333039283752,
+          "material:unknown": 0.8810365200042725,
+          "material:wood": 0.8285714387893677,
+          "pattern:striped": 0.8125,
+          "pattern:textured": 0.644444465637207,
+          "pattern:unknown": 0.9912077784538269
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.2782355110714401,
+      "mrr": 0.9488426003479151,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 9,
+    "split": "val",
+    "loss": 1.7554597951348716,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9776481986045837,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9856630563735962,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9597315192222595,
+          "tableware_mug": 0.9795918464660645,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9720243811607361,
+        "per_class": {
+          "clothing_wristwatch": 0.9718309640884399,
+          "electronics_keyboard": 0.96517413854599,
+          "electronics_mouse": 0.9369369149208069,
+          "footwear_sneakers": 0.9909909963607788,
+          "stationery_calculator": 0.9677419066429138,
+          "stationery_notebook": 0.9761092066764832,
+          "tableware_mug": 0.9696969985961914,
+          "tableware_waterbottle": 0.9813664555549622,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9420796632766724,
+        "per_attribute": {
+          "color:black": 0.9008746147155762,
+          "color:blue": 0.9203109741210938,
+          "color:brown": 0.9572400450706482,
+          "color:green": 0.9620991349220276,
+          "color:grey": 0.9397473335266113,
+          "color:red": 0.975704550743103,
+          "color:silver": 0.9552963972091675,
+          "color:transparent": 0.9951409101486206,
+          "color:unknown": 0.819242000579834,
+          "color:white": 0.9028182625770569,
+          "material:fabric": 0.9067055583000183,
+          "material:glass": 0.9941691160202026,
+          "material:leather": 0.9173955321311951,
+          "material:metal": 0.9261418581008911,
+          "material:plastic": 0.8756073713302612,
+          "material:unknown": 0.9173955321311951,
+          "material:wood": 0.9883381724357605,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9951409101486206,
+          "pattern:unknown": 0.9922254681587219
+        }
+      },
+      "f1": {
+        "overall": 0.7255820035934448,
+        "per_attribute": {
+          "color:black": 0.8229166865348816,
+          "color:blue": 0.6771653294563293,
+          "color:brown": 0.6206896305084229,
+          "color:green": 0.7958115339279175,
+          "color:grey": 0.515625,
+          "color:red": 0.6835442781448364,
+          "color:silver": 0.5208333134651184,
+          "color:transparent": 0.8148148059844971,
+          "color:unknown": 0.6324110627174377,
+          "color:white": 0.6815286874771118,
+          "material:fabric": 0.8441558480262756,
+          "material:glass": 0.936170220375061,
+          "material:leather": 0.3199999928474426,
+          "material:metal": 0.6833333373069763,
+          "material:plastic": 0.7377049326896667,
+          "material:unknown": 0.8669796586036682,
+          "material:wood": 0.6000000238418579,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.761904776096344,
+          "pattern:unknown": 0.9960513114929199
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7704393612284237,
+      "mrr": 0.41224333334015456,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 10,
+    "split": "train",
+    "loss": 0.2462840067303699,
+    "classification": {
+      "accuracy": {
+        "overall": 0.998792290687561,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9957627058029175,
+          "tableware_mug": 0.9946091771125793,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.998151421546936,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 0.9959514141082764,
+          "stationery_notebook": 0.9978768825531006,
+          "tableware_mug": 0.9972972869873047,
+          "tableware_waterbottle": 0.998487114906311,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9799667596817017,
+        "per_attribute": {
+          "color:black": 0.9719203114509583,
+          "color:blue": 0.9873188138008118,
+          "color:brown": 0.9827898740768433,
+          "color:green": 0.9945651888847351,
+          "color:grey": 0.9824879169464111,
+          "color:red": 0.9936594367027283,
+          "color:silver": 0.9852052927017212,
+          "color:transparent": 0.9909420013427734,
+          "color:unknown": 0.9559178948402405,
+          "color:white": 0.9800724387168884,
+          "material:fabric": 0.9746376872062683,
+          "material:glass": 0.9779589176177979,
+          "material:leather": 0.9689009785652161,
+          "material:metal": 0.9547101259231567,
+          "material:plastic": 0.9438405632972717,
+          "material:unknown": 0.9773550629615784,
+          "material:wood": 0.9945651888847351,
+          "pattern:striped": 0.9990941882133484,
+          "pattern:textured": 0.9936594367027283,
+          "pattern:unknown": 0.9897342920303345
+        }
+      },
+      "f1": {
+        "overall": 0.8879565000534058,
+        "per_attribute": {
+          "color:black": 0.9561940431594849,
+          "color:blue": 0.9507042169570923,
+          "color:brown": 0.8463611602783203,
+          "color:green": 0.9549999833106995,
+          "color:grey": 0.8599033951759338,
+          "color:red": 0.9156626462936401,
+          "color:silver": 0.8927789926528931,
+          "color:transparent": 0.8623853325843811,
+          "color:unknown": 0.8737024068832397,
+          "color:white": 0.9197080135345459,
+          "material:fabric": 0.9448094367980957,
+          "material:glass": 0.8660550713539124,
+          "material:leather": 0.7031700015068054,
+          "material:metal": 0.8893805146217346,
+          "material:plastic": 0.9221757054328918,
+          "material:unknown": 0.9099639654159546,
+          "material:wood": 0.8656716346740723,
+          "pattern:striped": 0.8965517282485962,
+          "pattern:textured": 0.7341772317886353,
+          "pattern:unknown": 0.9947740435600281
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.2481254683672518,
+      "mrr": 0.9543956356923937,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 10,
+    "split": "val",
+    "loss": 1.8850487380264105,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9825072884559631,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9800000190734863,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9892473220825195,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.963087260723114,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9786672592163086,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9702970385551453,
+          "electronics_mouse": 0.9454545378684998,
+          "footwear_sneakers": 0.9928057789802551,
+          "stationery_calculator": 0.9677419066429138,
+          "stationery_notebook": 0.979522168636322,
+          "tableware_mug": 0.9898989796638489,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9448493719100952,
+        "per_attribute": {
+          "color:black": 0.9164237380027771,
+          "color:blue": 0.9475218653678894,
+          "color:brown": 0.9562682509422302,
+          "color:green": 0.9620991349220276,
+          "color:grey": 0.9552963972091675,
+          "color:red": 0.9834790825843811,
+          "color:silver": 0.9572400450706482,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.819242000579834,
+          "color:white": 0.9067055583000183,
+          "material:fabric": 0.8999028205871582,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9241982698440552,
+          "material:metal": 0.9310009479522705,
+          "material:plastic": 0.8833819031715393,
+          "material:unknown": 0.8969873785972595,
+          "material:wood": 0.9863945841789246,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9893100261688232,
+          "pattern:unknown": 0.9883381724357605
+        }
+      },
+      "f1": {
+        "overall": 0.7275288105010986,
+        "per_attribute": {
+          "color:black": 0.8527397513389587,
+          "color:blue": 0.752293586730957,
+          "color:brown": 0.6017699241638184,
+          "color:green": 0.800000011920929,
+          "color:grey": 0.557692289352417,
+          "color:red": 0.7213114500045776,
+          "color:silver": 0.5416666865348816,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6436781883239746,
+          "color:white": 0.6942675113677979,
+          "material:fabric": 0.8303130269050598,
+          "material:glass": 0.9473684430122375,
+          "material:leather": 0.25,
+          "material:metal": 0.6952789425849915,
+          "material:plastic": 0.7540983557701111,
+          "material:unknown": 0.8422619104385376,
+          "material:wood": 0.5625,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.5925925970077515,
+          "pattern:unknown": 0.9940770268440247
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.8168942501987497,
+      "mrr": 0.4010749085651542,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 11,
+    "split": "train",
+    "loss": 0.21289418691742248,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9978864789009094,
+        "per_class": {
+          "clothing_wristwatch": 0.997840166091919,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.9974874258041382,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9946091771125793,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.997802197933197
+        }
+      },
+      "f1": {
+        "overall": 0.9983052015304565,
+        "per_class": {
+          "clothing_wristwatch": 0.9967637658119202,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.9987421631813049,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9959514141082764,
+          "tableware_waterbottle": 0.9977290034294128,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.997802197933197
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9838013052940369,
+        "per_attribute": {
+          "color:black": 0.9746376872062683,
+          "color:blue": 0.9888284802436829,
+          "color:brown": 0.9852052927017212,
+          "color:green": 0.9942632913589478,
+          "color:grey": 0.9839975833892822,
+          "color:red": 0.9966787695884705,
+          "color:silver": 0.9852052927017212,
+          "color:transparent": 0.9936594367027283,
+          "color:unknown": 0.9664855003356934,
+          "color:white": 0.9846014380455017,
+          "material:fabric": 0.9800724387168884,
+          "material:glass": 0.97826087474823,
+          "material:leather": 0.97826087474823,
+          "material:metal": 0.9616546034812927,
+          "material:plastic": 0.9550120830535889,
+          "material:unknown": 0.9897342920303345,
+          "material:wood": 0.9951691031455994,
+          "pattern:striped": 0.9993961453437805,
+          "pattern:textured": 0.9939613342285156,
+          "pattern:unknown": 0.9909420013427734
+        }
+      },
+      "f1": {
+        "overall": 0.9065948724746704,
+        "per_attribute": {
+          "color:black": 0.9603399634361267,
+          "color:blue": 0.9555822610855103,
+          "color:brown": 0.8635097742080688,
+          "color:green": 0.9528536200523376,
+          "color:grey": 0.8716707229614258,
+          "color:red": 0.9539749026298523,
+          "color:silver": 0.8927789926528931,
+          "color:transparent": 0.8985507488250732,
+          "color:unknown": 0.9006266593933105,
+          "color:white": 0.9377289414405823,
+          "material:fabric": 0.9561753273010254,
+          "material:glass": 0.8681318759918213,
+          "material:leather": 0.7749999761581421,
+          "material:metal": 0.9042953848838806,
+          "material:plastic": 0.9370511174201965,
+          "material:unknown": 0.9572864174842834,
+          "material:wood": 0.8787878751754761,
+          "pattern:striped": 0.9285714030265808,
+          "pattern:textured": 0.7435897588729858,
+          "pattern:unknown": 0.9953917264938354
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.24348730244786268,
+      "mrr": 0.9559027826152562,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 11,
+    "split": "val",
+    "loss": 1.991609012999502,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9766764044761658,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9800000190734863,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9820788502693176,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9496644139289856,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9705982804298401,
+        "per_class": {
+          "clothing_wristwatch": 0.9722222089767456,
+          "electronics_keyboard": 0.9655172228813171,
+          "electronics_mouse": 0.9369369149208069,
+          "footwear_sneakers": 0.9909583926200867,
+          "stationery_calculator": 0.9677419066429138,
+          "stationery_notebook": 0.9741824269294739,
+          "tableware_mug": 0.9514563083648682,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9436832070350647,
+        "per_attribute": {
+          "color:black": 0.909621000289917,
+          "color:blue": 0.941690981388092,
+          "color:brown": 0.9650145769119263,
+          "color:green": 0.9698736667633057,
+          "color:grey": 0.9533527493476868,
+          "color:red": 0.9776481986045837,
+          "color:silver": 0.9591836929321289,
+          "color:transparent": 0.9970845580101013,
+          "color:unknown": 0.7998056411743164,
+          "color:white": 0.9193391799926758,
+          "material:fabric": 0.8921282887458801,
+          "material:glass": 0.9941691160202026,
+          "material:leather": 0.9280855059623718,
+          "material:metal": 0.9319728016853333,
+          "material:plastic": 0.884353756904602,
+          "material:unknown": 0.884353756904602,
+          "material:wood": 0.9834790825843811,
+          "pattern:striped": 0.999028205871582,
+          "pattern:textured": 0.9931972622871399,
+          "pattern:unknown": 0.9902818202972412
+        }
+      },
+      "f1": {
+        "overall": 0.721579909324646,
+        "per_attribute": {
+          "color:black": 0.8388214707374573,
+          "color:blue": 0.7321428656578064,
+          "color:brown": 0.6666666865348816,
+          "color:green": 0.8287292718887329,
+          "color:grey": 0.5636363625526428,
+          "color:red": 0.6933333277702332,
+          "color:silver": 0.54347825050354,
+          "color:transparent": 0.8799999952316284,
+          "color:unknown": 0.6347517967224121,
+          "color:white": 0.7205387353897095,
+          "material:fabric": 0.8115450143814087,
+          "material:glass": 0.9347826242446899,
+          "material:leather": 0.2448979616165161,
+          "material:metal": 0.6982758641242981,
+          "material:plastic": 0.7536231875419617,
+          "material:unknown": 0.8242245316505432,
+          "material:wood": 0.5142857432365417,
+          "pattern:striped": 0.8571428656578064,
+          "pattern:textured": 0.695652186870575,
+          "pattern:unknown": 0.9950690269470215
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7788736355663852,
+      "mrr": 0.40966676113325146,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 12,
+    "split": "train",
+    "loss": 0.17658341406048209,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9993961453437805,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9973045587539673,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9992782473564148,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 0.9968652129173279,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.998745322227478,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9986504912376404,
+          "tableware_waterbottle": 0.9992430210113525,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9872735738754272,
+        "per_attribute": {
+          "color:black": 0.9800724387168884,
+          "color:blue": 0.9894323945045471,
+          "color:brown": 0.9927536249160767,
+          "color:green": 0.9942632913589478,
+          "color:grey": 0.9873188138008118,
+          "color:red": 0.9972826242446899,
+          "color:silver": 0.9885265827178955,
+          "color:transparent": 0.9969806671142578,
+          "color:unknown": 0.9710144996643066,
+          "color:white": 0.9882246255874634,
+          "material:fabric": 0.9842995405197144,
+          "material:glass": 0.9867149591445923,
+          "material:leather": 0.9885265827178955,
+          "material:metal": 0.9670893549919128,
+          "material:plastic": 0.9637681245803833,
+          "material:unknown": 0.9888284802436829,
+          "material:wood": 0.9960748553276062,
+          "pattern:striped": 0.9990941882133484,
+          "pattern:textured": 0.9930555820465088,
+          "pattern:unknown": 0.9921497702598572
+        }
+      },
+      "f1": {
+        "overall": 0.923556923866272,
+        "per_attribute": {
+          "color:black": 0.9689558148384094,
+          "color:blue": 0.9584816098213196,
+          "color:brown": 0.9289940595626831,
+          "color:green": 0.9526184797286987,
+          "color:grey": 0.89552241563797,
+          "color:red": 0.9620253443717957,
+          "color:silver": 0.9151785969734192,
+          "color:transparent": 0.9494949579238892,
+          "color:unknown": 0.9133573770523071,
+          "color:white": 0.9517923593521118,
+          "material:fabric": 0.9651474356651306,
+          "material:glass": 0.9147287011146545,
+          "material:leather": 0.867132842540741,
+          "material:metal": 0.9174867272377014,
+          "material:plastic": 0.9492815136909485,
+          "material:unknown": 0.9531052112579346,
+          "material:wood": 0.8992248177528381,
+          "pattern:striped": 0.8965517282485962,
+          "pattern:textured": 0.7160493731498718,
+          "pattern:unknown": 0.996008574962616
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.23010212370163,
+      "mrr": 0.9572262545138741,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 12,
+    "split": "val",
+    "loss": 2.146215315752521,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9747327566146851,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9800000190734863,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9856630563735962,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9395973086357117,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9882352948188782
+        }
+      },
+      "f1": {
+        "overall": 0.9730781316757202,
+        "per_class": {
+          "clothing_wristwatch": 0.9790209531784058,
+          "electronics_keyboard": 0.9560975432395935,
+          "electronics_mouse": 0.9122806787490845,
+          "footwear_sneakers": 0.9909909963607788,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9688581228256226,
+          "tableware_mug": 0.9800000190734863,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9767441749572754
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9471331238746643,
+        "per_attribute": {
+          "color:black": 0.9144800901412964,
+          "color:blue": 0.9455782175064087,
+          "color:brown": 0.9640427827835083,
+          "color:green": 0.9727891087532043,
+          "color:grey": 0.9689018726348877,
+          "color:red": 0.9873663783073425,
+          "color:silver": 0.9601554870605469,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8211855888366699,
+          "color:white": 0.8999028205871582,
+          "material:fabric": 0.8921282887458801,
+          "material:glass": 0.9941691160202026,
+          "material:leather": 0.9290573596954346,
+          "material:metal": 0.9329445958137512,
+          "material:plastic": 0.8882409930229187,
+          "material:unknown": 0.8911564350128174,
+          "material:wood": 0.9931972622871399,
+          "pattern:striped": 0.999028205871582,
+          "pattern:textured": 0.9961127042770386,
+          "pattern:unknown": 0.9941691160202026
+        }
+      },
+      "f1": {
+        "overall": 0.7494990825653076,
+        "per_attribute": {
+          "color:black": 0.8518518805503845,
+          "color:blue": 0.7407407164573669,
+          "color:brown": 0.6407766938209534,
+          "color:green": 0.8426966071128845,
+          "color:grey": 0.644444465637207,
+          "color:red": 0.7719298005104065,
+          "color:silver": 0.5494505763053894,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6488549709320068,
+          "color:white": 0.6961652040481567,
+          "material:fabric": 0.8089500665664673,
+          "material:glass": 0.9347826242446899,
+          "material:leather": 0.2772277295589447,
+          "material:metal": 0.6960352659225464,
+          "material:plastic": 0.7628865838050842,
+          "material:unknown": 0.832335352897644,
+          "material:wood": 0.7200000286102295,
+          "pattern:striped": 0.8571428656578064,
+          "pattern:textured": 0.800000011920929,
+          "pattern:unknown": 0.9970443248748779
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7860032269048736,
+      "mrr": 0.41304288962376245,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 13,
+    "split": "train",
+    "loss": 0.1518922957101306,
+    "classification": {
+      "accuracy": {
+        "overall": 0.998792290687561,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9957627058029175,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9969696998596191,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9987692832946777,
+        "per_class": {
+          "clothing_wristwatch": 0.998921275138855,
+          "electronics_keyboard": 0.9968652129173279,
+          "electronics_mouse": 0.9988802075386047,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9978768825531006,
+          "tableware_mug": 0.9986541271209717,
+          "tableware_waterbottle": 0.9977255463600159,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9899607300758362,
+        "per_attribute": {
+          "color:black": 0.9815821051597595,
+          "color:blue": 0.990338146686554,
+          "color:brown": 0.9897342920303345,
+          "color:green": 0.9969806671142578,
+          "color:grey": 0.9909420013427734,
+          "color:red": 0.9984903335571289,
+          "color:silver": 0.9900362491607666,
+          "color:transparent": 0.9963768124580383,
+          "color:unknown": 0.9803743958473206,
+          "color:white": 0.9924516677856445,
+          "material:fabric": 0.987922728061676,
+          "material:glass": 0.9888284802436829,
+          "material:leather": 0.9867149591445923,
+          "material:metal": 0.9734299778938293,
+          "material:plastic": 0.9722222089767456,
+          "material:unknown": 0.991847813129425,
+          "material:wood": 0.9984903335571289,
+          "pattern:striped": 0.9993961453437805,
+          "pattern:textured": 0.9975845217704773,
+          "pattern:unknown": 0.9954710006713867
+        }
+      },
+      "f1": {
+        "overall": 0.9427983164787292,
+        "per_attribute": {
+          "color:black": 0.9713480472564697,
+          "color:blue": 0.9618138670921326,
+          "color:brown": 0.8999999761581421,
+          "color:green": 0.9747474789619446,
+          "color:grey": 0.9230769276618958,
+          "color:red": 0.9785407781600952,
+          "color:silver": 0.9258427023887634,
+          "color:transparent": 0.9399999976158142,
+          "color:unknown": 0.9403122067451477,
+          "color:white": 0.9685534834861755,
+          "material:fabric": 0.9729729890823364,
+          "material:glass": 0.9278752207756042,
+          "material:leather": 0.8482758402824402,
+          "material:metal": 0.9320987462997437,
+          "material:plastic": 0.9608176946640015,
+          "material:unknown": 0.9659520983695984,
+          "material:wood": 0.9586777091026306,
+          "pattern:striped": 0.9285714030265808,
+          "pattern:textured": 0.8787878751754761,
+          "pattern:unknown": 0.9977011680603027
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.20214763956801327,
+      "mrr": 0.9584591434773616,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 13,
+    "split": "val",
+    "loss": 2.0451749786806985,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9747327566146851,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.949999988079071,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9856630563735962,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9563758373260498,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9882352948188782
+        }
+      },
+      "f1": {
+        "overall": 0.9621957540512085,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9405940771102905,
+          "electronics_mouse": 0.9454545378684998,
+          "footwear_sneakers": 0.9909909963607788,
+          "stationery_calculator": 0.8823529481887817,
+          "stationery_notebook": 0.9743589758872986,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9824561476707458
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9476190209388733,
+        "per_attribute": {
+          "color:black": 0.9164237380027771,
+          "color:blue": 0.9348882436752319,
+          "color:brown": 0.9611272811889648,
+          "color:green": 0.967930018901825,
+          "color:grey": 0.967930018901825,
+          "color:red": 0.9844509363174438,
+          "color:silver": 0.9562682509422302,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8386783003807068,
+          "color:white": 0.9057337045669556,
+          "material:fabric": 0.8950437307357788,
+          "material:glass": 0.9941691160202026,
+          "material:leather": 0.9261418581008911,
+          "material:metal": 0.933916449546814,
+          "material:plastic": 0.8921282887458801,
+          "material:unknown": 0.8969873785972595,
+          "material:wood": 0.9902818202972412,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9951409101486206
+        }
+      },
+      "f1": {
+        "overall": 0.7499502301216125,
+        "per_attribute": {
+          "color:black": 0.8496503233909607,
+          "color:blue": 0.714893639087677,
+          "color:brown": 0.6226415038108826,
+          "color:green": 0.8235294222831726,
+          "color:grey": 0.6597937941551208,
+          "color:red": 0.7575757503509521,
+          "color:silver": 0.5054945349693298,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.670634925365448,
+          "color:white": 0.6978192925453186,
+          "material:fabric": 0.8144329786300659,
+          "material:glass": 0.936170220375061,
+          "material:leather": 0.2549019753932953,
+          "material:metal": 0.6822429895401001,
+          "material:plastic": 0.7682672142982483,
+          "material:unknown": 0.841791033744812,
+          "material:wood": 0.6428571343421936,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.9975357055664062
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.6959631877459866,
+      "mrr": 0.42540306020872004,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 14,
+    "split": "train",
+    "loss": 0.14007068090680716,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9984903335571289,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.9974874258041382,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9957627058029175,
+          "tableware_mug": 0.9973045587539673,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9987396001815796,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.9987421631813049,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9978768825531006,
+          "tableware_mug": 0.9973045587539673,
+          "tableware_waterbottle": 0.9969742894172668,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.991425096988678,
+        "per_attribute": {
+          "color:black": 0.9852052927017212,
+          "color:blue": 0.9927536249160767,
+          "color:brown": 0.9948671460151672,
+          "color:green": 0.9966787695884705,
+          "color:grey": 0.9948671460151672,
+          "color:red": 0.9966787695884705,
+          "color:silver": 0.9876207709312439,
+          "color:transparent": 0.9969806671142578,
+          "color:unknown": 0.9833937287330627,
+          "color:white": 0.9906401038169861,
+          "material:fabric": 0.9897342920303345,
+          "material:glass": 0.990338146686554,
+          "material:leather": 0.9894323945045471,
+          "material:metal": 0.9800724387168884,
+          "material:plastic": 0.9773550629615784,
+          "material:unknown": 0.9933574795722961,
+          "material:wood": 0.9966787695884705,
+          "pattern:striped": 0.9996980428695679,
+          "pattern:textured": 0.9966787695884705,
+          "pattern:unknown": 0.9954710006713867
+        }
+      },
+      "f1": {
+        "overall": 0.9468826055526733,
+        "per_attribute": {
+          "color:black": 0.9767220616340637,
+          "color:blue": 0.9710843563079834,
+          "color:brown": 0.9483282566070557,
+          "color:green": 0.9722921848297119,
+          "color:grey": 0.9556135535240173,
+          "color:red": 0.9539749026298523,
+          "color:silver": 0.9086859822273254,
+          "color:transparent": 0.9484536051750183,
+          "color:unknown": 0.9492151141166687,
+          "color:white": 0.9609079360961914,
+          "material:fabric": 0.9770580530166626,
+          "material:glass": 0.9365079402923584,
+          "material:leather": 0.8754448294639587,
+          "material:metal": 0.9486780762672424,
+          "material:plastic": 0.9680443406105042,
+          "material:unknown": 0.9720101952552795,
+          "material:wood": 0.913385808467865,
+          "pattern:striped": 0.9629629850387573,
+          "pattern:textured": 0.8405796885490417,
+          "pattern:unknown": 0.99770188331604
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.19521159253978498,
+      "mrr": 0.9629629666102681,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 14,
+    "split": "val",
+    "loss": 2.1813594024081735,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9854227304458618,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9599999785423279,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9928315281867981,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9731543660163879,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9792492389678955,
+        "per_class": {
+          "clothing_wristwatch": 0.9929078221321106,
+          "electronics_keyboard": 0.9599999785423279,
+          "electronics_mouse": 0.9719626307487488,
+          "footwear_sneakers": 0.9946140050888062,
+          "stationery_calculator": 0.9411764740943909,
+          "stationery_notebook": 0.9847198724746704,
+          "tableware_mug": 0.9800000190734863,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9941520690917969
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9463071227073669,
+        "per_attribute": {
+          "color:black": 0.9115646481513977,
+          "color:blue": 0.9378036856651306,
+          "color:brown": 0.9611272811889648,
+          "color:green": 0.9659863710403442,
+          "color:grey": 0.9620991349220276,
+          "color:red": 0.9815354943275452,
+          "color:silver": 0.9620991349220276,
+          "color:transparent": 0.999028205871582,
+          "color:unknown": 0.8309037685394287,
+          "color:white": 0.9125364422798157,
+          "material:fabric": 0.8892128467559814,
+          "material:glass": 0.9961127042770386,
+          "material:leather": 0.9290573596954346,
+          "material:metal": 0.933916449546814,
+          "material:plastic": 0.8901846408843994,
+          "material:unknown": 0.88532555103302,
+          "material:wood": 0.9893100261688232,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9941691160202026,
+          "pattern:unknown": 0.9941691160202026
+        }
+      },
+      "f1": {
+        "overall": 0.7428860664367676,
+        "per_attribute": {
+          "color:black": 0.8377896547317505,
+          "color:blue": 0.7217391133308411,
+          "color:brown": 0.6226415038108826,
+          "color:green": 0.8108108043670654,
+          "color:grey": 0.6138613820075989,
+          "color:red": 0.7164179086685181,
+          "color:silver": 0.5411764979362488,
+          "color:transparent": 0.95652174949646,
+          "color:unknown": 0.6574802994728088,
+          "color:white": 0.7096773982048035,
+          "material:fabric": 0.8020833134651184,
+          "material:glass": 0.957446813583374,
+          "material:leather": 0.2772277295589447,
+          "material:metal": 0.6964285969734192,
+          "material:plastic": 0.7670103311538696,
+          "material:unknown": 0.824404776096344,
+          "material:wood": 0.6206896305084229,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.7272727489471436,
+          "pattern:unknown": 0.9970414042472839
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.777360548083358,
+      "mrr": 0.42101242915302717,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 15,
+    "split": "train",
+    "loss": 0.11488402667252914,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9996980428695679,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9973045587539673,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9997659921646118,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9986504912376404,
+          "tableware_waterbottle": 0.9992430210113525,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9934178590774536,
+        "per_attribute": {
+          "color:black": 0.9897342920303345,
+          "color:blue": 0.9939613342285156,
+          "color:brown": 0.9951691031455994,
+          "color:green": 0.9972826242446899,
+          "color:grey": 0.9960748553276062,
+          "color:red": 0.9996980428695679,
+          "color:silver": 0.9933574795722961,
+          "color:transparent": 0.9984903335571289,
+          "color:unknown": 0.9867149591445923,
+          "color:white": 0.9945651888847351,
+          "material:fabric": 0.990338146686554,
+          "material:glass": 0.9912439584732056,
+          "material:leather": 0.9921497702598572,
+          "material:metal": 0.9815821051597595,
+          "material:plastic": 0.9830917716026306,
+          "material:unknown": 0.9954710006713867,
+          "material:wood": 0.9969806671142578,
+          "pattern:striped": 0.9996980428695679,
+          "pattern:textured": 0.9975845217704773,
+          "pattern:unknown": 0.9951691031455994
+        }
+      },
+      "f1": {
+        "overall": 0.9601640701293945,
+        "per_attribute": {
+          "color:black": 0.9838862419128418,
+          "color:blue": 0.9757869243621826,
+          "color:brown": 0.9509202241897583,
+          "color:green": 0.9770992398262024,
+          "color:grey": 0.9653333425521851,
+          "color:red": 0.9956331849098206,
+          "color:silver": 0.9493087530136108,
+          "color:transparent": 0.9740932583808899,
+          "color:unknown": 0.9590316414833069,
+          "color:white": 0.9771573543548584,
+          "material:fabric": 0.9783197641372681,
+          "material:glass": 0.942345917224884,
+          "material:leather": 0.9051094651222229,
+          "material:metal": 0.9523065090179443,
+          "material:plastic": 0.9762712121009827,
+          "material:unknown": 0.9807445406913757,
+          "material:wood": 0.920634925365448,
+          "pattern:striped": 0.9629629850387573,
+          "pattern:textured": 0.8787878751754761,
+          "pattern:unknown": 0.9975475072860718
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.18481719342694766,
+      "mrr": 0.9643719847075605,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 15,
+    "split": "val",
+    "loss": 2.2551298057343683,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9825072884559631,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9856630563735962,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9697986841201782,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9756813049316406,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9603960514068604,
+          "electronics_mouse": 0.9454545378684998,
+          "footwear_sneakers": 0.9927797913551331,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9813242554664612,
+          "tableware_mug": 0.9898989796638489,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9941520690917969
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9486880302429199,
+        "per_attribute": {
+          "color:black": 0.9164237380027771,
+          "color:blue": 0.9475218653678894,
+          "color:brown": 0.9620991349220276,
+          "color:green": 0.9698736667633057,
+          "color:grey": 0.9572400450706482,
+          "color:red": 0.9834790825843811,
+          "color:silver": 0.9601554870605469,
+          "color:transparent": 0.999028205871582,
+          "color:unknown": 0.8367347121238708,
+          "color:white": 0.9144800901412964,
+          "material:fabric": 0.8911564350128174,
+          "material:glass": 0.9961127042770386,
+          "material:leather": 0.9290573596954346,
+          "material:metal": 0.9378036856651306,
+          "material:plastic": 0.8794946670532227,
+          "material:unknown": 0.9173955321311951,
+          "material:wood": 0.9902818202972412,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9941691160202026,
+          "pattern:unknown": 0.991253674030304
+        }
+      },
+      "f1": {
+        "overall": 0.7481631636619568,
+        "per_attribute": {
+          "color:black": 0.8512110710144043,
+          "color:blue": 0.7545454502105713,
+          "color:brown": 0.6285714507102966,
+          "color:green": 0.8208092451095581,
+          "color:grey": 0.6000000238418579,
+          "color:red": 0.7301587462425232,
+          "color:silver": 0.5393258333206177,
+          "color:transparent": 0.95652174949646,
+          "color:unknown": 0.6585366129875183,
+          "color:white": 0.7142857313156128,
+          "material:fabric": 0.8082191944122314,
+          "material:glass": 0.957446813583374,
+          "material:leather": 0.24742268025875092,
+          "material:metal": 0.7117117047309875,
+          "material:plastic": 0.7510040402412415,
+          "material:unknown": 0.867807149887085,
+          "material:wood": 0.6428571343421936,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.7272727489471436,
+          "pattern:unknown": 0.995555579662323
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.754235091431843,
+      "mrr": 0.4181100963040158,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 16,
+    "split": "train",
+    "loss": 0.10463997732470001,
+    "classification": {
+      "accuracy": {
+        "overall": 0.998792290687561,
+        "per_class": {
+          "clothing_wristwatch": 0.997840166091919,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9986529350280762,
+        "per_class": {
+          "clothing_wristwatch": 0.9967637658119202,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 0.9988776445388794,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9943236708641052,
+        "per_attribute": {
+          "color:black": 0.990338146686554,
+          "color:blue": 0.9957729578018188,
+          "color:brown": 0.9957729578018188,
+          "color:green": 0.9978864789009094,
+          "color:grey": 0.9954710006713867,
+          "color:red": 0.998792290687561,
+          "color:silver": 0.9936594367027283,
+          "color:transparent": 0.9978864789009094,
+          "color:unknown": 0.9921497702598572,
+          "color:white": 0.9951691031455994,
+          "material:fabric": 0.990338146686554,
+          "material:glass": 0.9951691031455994,
+          "material:leather": 0.9948671460151672,
+          "material:metal": 0.9858092069625854,
+          "material:plastic": 0.9833937287330627,
+          "material:unknown": 0.9951691031455994,
+          "material:wood": 0.9978864789009094,
+          "pattern:striped": 0.9993961453437805,
+          "pattern:textured": 0.9957729578018188,
+          "pattern:unknown": 0.9957729578018188
+        }
+      },
+      "f1": {
+        "overall": 0.959780752658844,
+        "per_attribute": {
+          "color:black": 0.9849056601524353,
+          "color:blue": 0.9829683899879456,
+          "color:brown": 0.957317054271698,
+          "color:green": 0.9821882843971252,
+          "color:grey": 0.960629940032959,
+          "color:red": 0.982758641242981,
+          "color:silver": 0.9510489702224731,
+          "color:transparent": 0.964102566242218,
+          "color:unknown": 0.9753788113594055,
+          "color:white": 0.9796954393386841,
+          "material:fabric": 0.9783197641372681,
+          "material:glass": 0.9674796462059021,
+          "material:leather": 0.9358490705490112,
+          "material:metal": 0.9629629850387573,
+          "material:plastic": 0.9764453768730164,
+          "material:unknown": 0.9794344305992126,
+          "material:wood": 0.942148745059967,
+          "pattern:striped": 0.9285714030265808,
+          "pattern:textured": 0.8055555820465088,
+          "pattern:unknown": 0.9978547096252441
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.17914998898246653,
+      "mrr": 0.9669384098283335,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 16,
+    "split": "val",
+    "loss": 2.3591436304231657,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9834790825843811,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9599999785423279,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9928315281867981,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9697986841201782,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9756931066513062,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9599999785423279,
+          "electronics_mouse": 0.9719626307487488,
+          "footwear_sneakers": 0.9964028596878052,
+          "stationery_calculator": 0.9411764740943909,
+          "stationery_notebook": 0.9829931855201721,
+          "tableware_mug": 0.9607843160629272,
+          "tableware_waterbottle": 0.993630588054657,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9476190209388733,
+        "per_attribute": {
+          "color:black": 0.9212828278541565,
+          "color:blue": 0.9455782175064087,
+          "color:brown": 0.9620991349220276,
+          "color:green": 0.9708454608917236,
+          "color:grey": 0.9630709290504456,
+          "color:red": 0.9893100261688232,
+          "color:silver": 0.9620991349220276,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8153547048568726,
+          "color:white": 0.9057337045669556,
+          "material:fabric": 0.8911564350128174,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9290573596954346,
+          "material:metal": 0.9407191276550293,
+          "material:plastic": 0.8911564350128174,
+          "material:unknown": 0.884353756904602,
+          "material:wood": 0.9941691160202026,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9961127042770386
+        }
+      },
+      "f1": {
+        "overall": 0.759660005569458,
+        "per_attribute": {
+          "color:black": 0.855614960193634,
+          "color:blue": 0.7431192398071289,
+          "color:brown": 0.6285714507102966,
+          "color:green": 0.8333333134651184,
+          "color:grey": 0.6122449040412903,
+          "color:red": 0.8070175647735596,
+          "color:silver": 0.5411764979362488,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6346153616905212,
+          "color:white": 0.7033638954162598,
+          "material:fabric": 0.8021201491355896,
+          "material:glass": 0.9462365508079529,
+          "material:leather": 0.2626262605190277,
+          "material:metal": 0.7239819169044495,
+          "material:plastic": 0.7676348686218262,
+          "material:unknown": 0.8247422575950623,
+          "material:wood": 0.75,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.9980295300483704
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7754068941138574,
+      "mrr": 0.41782462932857295,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 17,
+    "split": "train",
+    "loss": 0.08837415324749003,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9990941882133484,
+        "per_class": {
+          "clothing_wristwatch": 0.997840166091919,
+          "electronics_keyboard": 0.9937499761581421,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9973045587539673,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9990891218185425,
+        "per_class": {
+          "clothing_wristwatch": 0.998918890953064,
+          "electronics_keyboard": 0.9968652129173279,
+          "electronics_mouse": 0.9988802075386047,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9986504912376404,
+          "tableware_waterbottle": 0.998487114906311,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9957125782966614,
+        "per_attribute": {
+          "color:black": 0.9921497702598572,
+          "color:blue": 0.9972826242446899,
+          "color:brown": 0.9981883764266968,
+          "color:green": 0.9975845217704773,
+          "color:grey": 0.9960748553276062,
+          "color:red": 0.9990941882133484,
+          "color:silver": 0.9957729578018188,
+          "color:transparent": 0.9981883764266968,
+          "color:unknown": 0.9915459156036377,
+          "color:white": 0.9945651888847351,
+          "material:fabric": 0.9939613342285156,
+          "material:glass": 0.9954710006713867,
+          "material:leather": 0.9963768124580383,
+          "material:metal": 0.990338146686554,
+          "material:plastic": 0.987922728061676,
+          "material:unknown": 0.9957729578018188,
+          "material:wood": 0.9996980428695679,
+          "pattern:striped": 0.9996980428695679,
+          "pattern:textured": 0.9981883764266968,
+          "pattern:unknown": 0.9963768124580383
+        }
+      },
+      "f1": {
+        "overall": 0.9742485880851746,
+        "per_attribute": {
+          "color:black": 0.9876777529716492,
+          "color:blue": 0.9889841079711914,
+          "color:brown": 0.9811320900917053,
+          "color:green": 0.9796954393386841,
+          "color:grey": 0.9656991958618164,
+          "color:red": 0.9870129823684692,
+          "color:silver": 0.9669811129570007,
+          "color:transparent": 0.969072163105011,
+          "color:unknown": 0.9735848903656006,
+          "color:white": 0.9770992398262024,
+          "material:fabric": 0.9863760471343994,
+          "material:glass": 0.9694501161575317,
+          "material:leather": 0.9538461565971375,
+          "material:metal": 0.9745628237724304,
+          "material:plastic": 0.9829642176628113,
+          "material:unknown": 0.9820051193237305,
+          "material:wood": 0.9914529919624329,
+          "pattern:striped": 0.9629629850387573,
+          "pattern:textured": 0.90625,
+          "pattern:unknown": 0.998161792755127
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.17051859361969907,
+      "mrr": 0.9663345450940339,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 17,
+    "split": "val",
+    "loss": 2.4272984050511157,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9825072884559631,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9928315281867981,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9597315192222595,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9780401587486267,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9603960514068604,
+          "electronics_mouse": 0.9541284441947937,
+          "footwear_sneakers": 0.9964028596878052,
+          "stationery_calculator": 0.9696969985961914,
+          "stationery_notebook": 0.9794520735740662,
+          "tableware_mug": 0.9800000190734863,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9494169354438782,
+        "per_attribute": {
+          "color:black": 0.9144800901412964,
+          "color:blue": 0.9475218653678894,
+          "color:brown": 0.9611272811889648,
+          "color:green": 0.9727891087532043,
+          "color:grey": 0.9689018726348877,
+          "color:red": 0.9844509363174438,
+          "color:silver": 0.9620991349220276,
+          "color:transparent": 0.999028205871582,
+          "color:unknown": 0.8386783003807068,
+          "color:white": 0.9144800901412964,
+          "material:fabric": 0.8931000828742981,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9358600378036499,
+          "material:metal": 0.9407191276550293,
+          "material:plastic": 0.8775510191917419,
+          "material:unknown": 0.9018464684486389,
+          "material:wood": 0.9922254681587219,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9951409101486206,
+          "pattern:unknown": 0.9931972622871399
+        }
+      },
+      "f1": {
+        "overall": 0.7543381452560425,
+        "per_attribute": {
+          "color:black": 0.8487972617149353,
+          "color:blue": 0.7567567825317383,
+          "color:brown": 0.6226415038108826,
+          "color:green": 0.8409090638160706,
+          "color:grey": 0.644444465637207,
+          "color:red": 0.7419354915618896,
+          "color:silver": 0.5301204919815063,
+          "color:transparent": 0.95652174949646,
+          "color:unknown": 0.6626016497612,
+          "color:white": 0.7197452187538147,
+          "material:fabric": 0.8070175647735596,
+          "material:glass": 0.9462365508079529,
+          "material:leather": 0.25,
+          "material:metal": 0.7188940048217773,
+          "material:plastic": 0.7459677457809448,
+          "material:unknown": 0.843410849571228,
+          "material:wood": 0.692307710647583,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.761904776096344,
+          "pattern:unknown": 0.9965500235557556
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.784237358266573,
+      "mrr": 0.42391835612157114,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 18,
+    "split": "train",
+    "loss": 0.08110748507658352,
+    "classification": {
+      "accuracy": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9962862133979797,
+        "per_attribute": {
+          "color:black": 0.9933574795722961,
+          "color:blue": 0.9978864789009094,
+          "color:brown": 0.9975845217704773,
+          "color:green": 0.9984903335571289,
+          "color:grey": 0.9978864789009094,
+          "color:red": 0.9993961453437805,
+          "color:silver": 0.9978864789009094,
+          "color:transparent": 0.9978864789009094,
+          "color:unknown": 0.9942632913589478,
+          "color:white": 0.9957729578018188,
+          "material:fabric": 0.9951691031455994,
+          "material:glass": 0.9954710006713867,
+          "material:leather": 0.9984903335571289,
+          "material:metal": 0.9873188138008118,
+          "material:plastic": 0.9897342920303345,
+          "material:unknown": 0.9972826242446899,
+          "material:wood": 0.9981883764266968,
+          "pattern:striped": 0.9996980428695679,
+          "pattern:textured": 0.9975845217704773,
+          "pattern:unknown": 0.9963768124580383
+        }
+      },
+      "f1": {
+        "overall": 0.9748460054397583,
+        "per_attribute": {
+          "color:black": 0.9895932078361511,
+          "color:blue": 0.9914529919624329,
+          "color:brown": 0.9750000238418579,
+          "color:green": 0.9871465563774109,
+          "color:grey": 0.981333315372467,
+          "color:red": 0.991304337978363,
+          "color:silver": 0.9832935333251953,
+          "color:transparent": 0.9637305736541748,
+          "color:unknown": 0.982024610042572,
+          "color:white": 0.9821428656578064,
+          "material:fabric": 0.9890561103820801,
+          "material:glass": 0.9694501161575317,
+          "material:leather": 0.980079710483551,
+          "material:metal": 0.9666666388511658,
+          "material:plastic": 0.98549485206604,
+          "material:unknown": 0.9884169697761536,
+          "material:wood": 0.9508196711540222,
+          "pattern:striped": 0.9629629850387573,
+          "pattern:textured": 0.8787878751754761,
+          "pattern:unknown": 0.998161792755127
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.1509814859336413,
+      "mrr": 0.9727002842990673,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 18,
+    "split": "val",
+    "loss": 2.4359184280544723,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9825072884559631,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9892473220825195,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.963087260723114,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9774858355522156,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.96517413854599,
+          "electronics_mouse": 0.9541284441947937,
+          "footwear_sneakers": 0.9945945739746094,
+          "stationery_calculator": 0.9696969985961914,
+          "stationery_notebook": 0.9811965823173523,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.949562668800354,
+        "per_attribute": {
+          "color:black": 0.9164237380027771,
+          "color:blue": 0.943634569644928,
+          "color:brown": 0.9620991349220276,
+          "color:green": 0.9659863710403442,
+          "color:grey": 0.9650145769119263,
+          "color:red": 0.9844509363174438,
+          "color:silver": 0.9611272811889648,
+          "color:transparent": 0.999028205871582,
+          "color:unknown": 0.8425655961036682,
+          "color:white": 0.9135082364082336,
+          "material:fabric": 0.8931000828742981,
+          "material:glass": 0.9931972622871399,
+          "material:leather": 0.9290573596954346,
+          "material:metal": 0.943634569644928,
+          "material:plastic": 0.8824101090431213,
+          "material:unknown": 0.9125364422798157,
+          "material:wood": 0.9902818202972412,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9961127042770386
+        }
+      },
+      "f1": {
+        "overall": 0.7534774541854858,
+        "per_attribute": {
+          "color:black": 0.8512110710144043,
+          "color:blue": 0.7363636493682861,
+          "color:brown": 0.6285714507102966,
+          "color:green": 0.8108108043670654,
+          "color:grey": 0.6399999856948853,
+          "color:red": 0.7419354915618896,
+          "color:silver": 0.523809552192688,
+          "color:transparent": 0.95652174949646,
+          "color:unknown": 0.6652892827987671,
+          "color:white": 0.7138263583183289,
+          "material:fabric": 0.8083623647689819,
+          "material:glass": 0.9230769276618958,
+          "material:leather": 0.24742268025875092,
+          "material:metal": 0.7264150977134705,
+          "material:plastic": 0.753564178943634,
+          "material:unknown": 0.859375,
+          "material:wood": 0.6428571343421936,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.998031497001648
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7775234310689543,
+      "mrr": 0.4190556446942922,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 19,
+    "split": "train",
+    "loss": 0.06834772257989155,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9996980428695679,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9974874258041382,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9997761249542236,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9987421631813049,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9992430210113525,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9967391490936279,
+        "per_attribute": {
+          "color:black": 0.9924516677856445,
+          "color:blue": 0.9972826242446899,
+          "color:brown": 0.9981883764266968,
+          "color:green": 0.998792290687561,
+          "color:grey": 0.9972826242446899,
+          "color:red": 0.9996980428695679,
+          "color:silver": 0.9975845217704773,
+          "color:transparent": 0.9993961453437805,
+          "color:unknown": 0.9942632913589478,
+          "color:white": 0.9963768124580383,
+          "material:fabric": 0.9954710006713867,
+          "material:glass": 0.9963768124580383,
+          "material:leather": 0.9972826242446899,
+          "material:metal": 0.9921497702598572,
+          "material:plastic": 0.9900362491607666,
+          "material:unknown": 0.9978864789009094,
+          "material:wood": 0.9984903335571289,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9984903335571289,
+          "pattern:unknown": 0.9972826242446899
+        }
+      },
+      "f1": {
+        "overall": 0.9810651540756226,
+        "per_attribute": {
+          "color:black": 0.9881348013877869,
+          "color:blue": 0.9890643954277039,
+          "color:brown": 0.981249988079071,
+          "color:green": 0.9897435903549194,
+          "color:grey": 0.9761273264884949,
+          "color:red": 0.9956331849098206,
+          "color:silver": 0.9809523820877075,
+          "color:transparent": 0.9894737005233765,
+          "color:unknown": 0.9819905161857605,
+          "color:white": 0.9846938848495483,
+          "material:fabric": 0.9897611141204834,
+          "material:glass": 0.9754098653793335,
+          "material:leather": 0.9649805426597595,
+          "material:metal": 0.9792332053184509,
+          "material:plastic": 0.9859514832496643,
+          "material:unknown": 0.9909677505493164,
+          "material:wood": 0.9586777091026306,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.920634925365448,
+          "pattern:unknown": 0.998621940612793
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.13518224401030562,
+      "mrr": 0.9751509687174922,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 19,
+    "split": "val",
+    "loss": 2.398385631852757,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9805636405944824,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9892473220825195,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9597315192222595,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9759765267372131,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9556650519371033,
+          "electronics_mouse": 0.9541284441947937,
+          "footwear_sneakers": 0.9945945739746094,
+          "stationery_calculator": 0.9696969985961914,
+          "stationery_notebook": 0.9777777791023254,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9502429366111755,
+        "per_attribute": {
+          "color:black": 0.9280855059623718,
+          "color:blue": 0.9484936594963074,
+          "color:brown": 0.9611272811889648,
+          "color:green": 0.9708454608917236,
+          "color:grey": 0.9727891087532043,
+          "color:red": 0.9873663783073425,
+          "color:silver": 0.9611272811889648,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8231292366981506,
+          "color:white": 0.9164237380027771,
+          "material:fabric": 0.8931000828742981,
+          "material:glass": 0.9941691160202026,
+          "material:leather": 0.9280855059623718,
+          "material:metal": 0.943634569644928,
+          "material:plastic": 0.8892128467559814,
+          "material:unknown": 0.9028182625770569,
+          "material:wood": 0.9922254681587219,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9970845580101013
+        }
+      },
+      "f1": {
+        "overall": 0.763364315032959,
+        "per_attribute": {
+          "color:black": 0.8710801601409912,
+          "color:blue": 0.7579908967018127,
+          "color:brown": 0.6226415038108826,
+          "color:green": 0.8333333134651184,
+          "color:grey": 0.695652186870575,
+          "color:red": 0.7796609997749329,
+          "color:silver": 0.5348837375640869,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6459143757820129,
+          "color:white": 0.7189542651176453,
+          "material:fabric": 0.8042704463005066,
+          "material:glass": 0.9347826242446899,
+          "material:leather": 0.27450981736183167,
+          "material:metal": 0.7314814925193787,
+          "material:plastic": 0.7654321193695068,
+          "material:unknown": 0.8470947742462158,
+          "material:wood": 0.692307710647583,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.9985228776931763
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7711165032419216,
+      "mrr": 0.42028940847710106,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 20,
+    "split": "train",
+    "loss": 0.06974054201717537,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9996980428695679,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9997959136962891,
+        "per_class": {
+          "clothing_wristwatch": 0.998921275138855,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.999241828918457,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9968448281288147,
+        "per_attribute": {
+          "color:black": 0.9942632913589478,
+          "color:blue": 0.9960748553276062,
+          "color:brown": 0.9978864789009094,
+          "color:green": 0.9996980428695679,
+          "color:grey": 0.9972826242446899,
+          "color:red": 0.9993961453437805,
+          "color:silver": 0.9957729578018188,
+          "color:transparent": 0.9984903335571289,
+          "color:unknown": 0.9924516677856445,
+          "color:white": 0.9975845217704773,
+          "material:fabric": 0.9969806671142578,
+          "material:glass": 0.9960748553276062,
+          "material:leather": 0.9972826242446899,
+          "material:metal": 0.9921497702598572,
+          "material:plastic": 0.990338146686554,
+          "material:unknown": 0.9975845217704773,
+          "material:wood": 0.998792290687561,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9996980428695679,
+          "pattern:unknown": 0.9990941882133484
+        }
+      },
+      "f1": {
+        "overall": 0.98304283618927,
+        "per_attribute": {
+          "color:black": 0.9909738898277283,
+          "color:blue": 0.984204113483429,
+          "color:brown": 0.9781931638717651,
+          "color:green": 0.9974160194396973,
+          "color:grey": 0.9761273264884949,
+          "color:red": 0.991304337978363,
+          "color:silver": 0.9668246507644653,
+          "color:transparent": 0.9740932583808899,
+          "color:unknown": 0.9763481616973877,
+          "color:white": 0.9897172451019287,
+          "material:fabric": 0.9931507110595703,
+          "material:glass": 0.9733059406280518,
+          "material:leather": 0.9647058844566345,
+          "material:metal": 0.9792332053184509,
+          "material:plastic": 0.9863364696502686,
+          "material:unknown": 0.9896640777587891,
+          "material:wood": 0.9666666388511658,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9830508232116699,
+          "pattern:unknown": 0.9995410442352295
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.12547287336946578,
+      "mrr": 0.9779086159047298,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 20,
+    "split": "val",
+    "loss": 2.4765062834506364,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9825072884559631,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9599999785423279,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9928315281867981,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 0.9664429426193237,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9753280878067017,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9552238583564758,
+          "electronics_mouse": 0.9719626307487488,
+          "footwear_sneakers": 0.9964028596878052,
+          "stationery_calculator": 0.9411764740943909,
+          "stationery_notebook": 0.9812606573104858,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9514577388763428,
+        "per_attribute": {
+          "color:black": 0.9222546219825745,
+          "color:blue": 0.9533527493476868,
+          "color:brown": 0.9620991349220276,
+          "color:green": 0.9650145769119263,
+          "color:grey": 0.9689018726348877,
+          "color:red": 0.9883381724357605,
+          "color:silver": 0.9620991349220276,
+          "color:transparent": 0.9970845580101013,
+          "color:unknown": 0.82798832654953,
+          "color:white": 0.9241982698440552,
+          "material:fabric": 0.8901846408843994,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9310009479522705,
+          "material:metal": 0.9455782175064087,
+          "material:plastic": 0.8989310264587402,
+          "material:unknown": 0.910592794418335,
+          "material:wood": 0.9922254681587219,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9970845580101013
+        }
+      },
+      "f1": {
+        "overall": 0.7613447308540344,
+        "per_attribute": {
+          "color:black": 0.8601398468017578,
+          "color:blue": 0.7798165082931519,
+          "color:brown": 0.6213592290878296,
+          "color:green": 0.8064516186714172,
+          "color:grey": 0.6666666865348816,
+          "color:red": 0.7857142686843872,
+          "color:silver": 0.5185185074806213,
+          "color:transparent": 0.8799999952316284,
+          "color:unknown": 0.6615678668022156,
+          "color:white": 0.7346938848495483,
+          "material:fabric": 0.8027923107147217,
+          "material:glass": 0.9462365508079529,
+          "material:leather": 0.2526315748691559,
+          "material:metal": 0.7383177280426025,
+          "material:plastic": 0.7805907130241394,
+          "material:unknown": 0.8584615588188171,
+          "material:wood": 0.692307710647583,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.9985228776931763
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7584463423959718,
+      "mrr": 0.4227019614450438,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 21,
+    "split": "train",
+    "loss": 0.06901783892066006,
+    "classification": {
+      "accuracy": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9969505071640015,
+        "per_attribute": {
+          "color:black": 0.9948671460151672,
+          "color:blue": 0.9981883764266968,
+          "color:brown": 0.9969806671142578,
+          "color:green": 0.9993961453437805,
+          "color:grey": 0.9984903335571289,
+          "color:red": 0.9990941882133484,
+          "color:silver": 0.9966787695884705,
+          "color:transparent": 0.9990941882133484,
+          "color:unknown": 0.9960748553276062,
+          "color:white": 0.9957729578018188,
+          "material:fabric": 0.9969806671142578,
+          "material:glass": 0.9969806671142578,
+          "material:leather": 0.9969806671142578,
+          "material:metal": 0.9897342920303345,
+          "material:plastic": 0.9894323945045471,
+          "material:unknown": 0.9978864789009094,
+          "material:wood": 0.9993961453437805,
+          "pattern:striped": 0.9996980428695679,
+          "pattern:textured": 0.998792290687561,
+          "pattern:unknown": 0.9984903335571289
+        }
+      },
+      "f1": {
+        "overall": 0.9806463718414307,
+        "per_attribute": {
+          "color:black": 0.9919393062591553,
+          "color:blue": 0.9926650524139404,
+          "color:brown": 0.9689440727233887,
+          "color:green": 0.9948186278343201,
+          "color:grey": 0.986522912979126,
+          "color:red": 0.9870129823684692,
+          "color:silver": 0.9739952683448792,
+          "color:transparent": 0.9842932224273682,
+          "color:unknown": 0.9875597953796387,
+          "color:white": 0.9822335243225098,
+          "material:fabric": 0.9931412935256958,
+          "material:glass": 0.9793388247489929,
+          "material:leather": 0.9609375,
+          "material:metal": 0.9728000164031982,
+          "material:plastic": 0.9850491285324097,
+          "material:unknown": 0.9909443855285645,
+          "material:wood": 0.9830508232116699,
+          "pattern:striped": 0.9629629850387573,
+          "pattern:textured": 0.9354838728904724,
+          "pattern:unknown": 0.9992349147796631
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.14287707961843785,
+      "mrr": 0.9736564015420739,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 21,
+    "split": "val",
+    "loss": 2.506241382239975,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9805636405944824,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9928315281867981,
+          "stationery_calculator": 0.875,
+          "stationery_notebook": 0.9597315192222595,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9692570567131042,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9603960514068604,
+          "electronics_mouse": 0.9369369149208069,
+          "footwear_sneakers": 0.9964028596878052,
+          "stationery_calculator": 0.9032257795333862,
+          "stationery_notebook": 0.9777777791023254,
+          "tableware_mug": 0.9800000190734863,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9509718418121338,
+        "per_attribute": {
+          "color:black": 0.9241982698440552,
+          "color:blue": 0.9514091610908508,
+          "color:brown": 0.9601554870605469,
+          "color:green": 0.9640427827835083,
+          "color:grey": 0.9611272811889648,
+          "color:red": 0.9854227304458618,
+          "color:silver": 0.9611272811889648,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8425655961036682,
+          "color:white": 0.9164237380027771,
+          "material:fabric": 0.8911564350128174,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9358600378036499,
+          "material:metal": 0.9446064233779907,
+          "material:plastic": 0.8892128467559814,
+          "material:unknown": 0.9154518842697144,
+          "material:wood": 0.9893100261688232,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9970845580101013
+        }
+      },
+      "f1": {
+        "overall": 0.7539650201797485,
+        "per_attribute": {
+          "color:black": 0.8631578683853149,
+          "color:blue": 0.7685185074806213,
+          "color:brown": 0.6168224215507507,
+          "color:green": 0.8021390438079834,
+          "color:grey": 0.6153846383094788,
+          "color:red": 0.7540983557701111,
+          "color:silver": 0.5121951103210449,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6733871102333069,
+          "color:white": 0.7189542651176453,
+          "material:fabric": 0.80887371301651,
+          "material:glass": 0.9462365508079529,
+          "material:leather": 0.2666666805744171,
+          "material:metal": 0.7246376872062683,
+          "material:plastic": 0.7663934230804443,
+          "material:unknown": 0.8638497591018677,
+          "material:wood": 0.6206896305084229,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.9985228776931763
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.770228231150161,
+      "mrr": 0.4218314530434715,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 22,
+    "split": "train",
+    "loss": 0.06660516020180522,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9990941882133484,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9984848499298096,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.997802197933197
+        }
+      },
+      "f1": {
+        "overall": 0.9992851614952087,
+        "per_class": {
+          "clothing_wristwatch": 0.998921275138855,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9977578520774841,
+          "footwear_sneakers": 0.998745322227478,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.999241828918457,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9988998770713806
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9970410466194153,
+        "per_attribute": {
+          "color:black": 0.9939613342285156,
+          "color:blue": 0.9978864789009094,
+          "color:brown": 0.9984903335571289,
+          "color:green": 0.9993961453437805,
+          "color:grey": 0.9981883764266968,
+          "color:red": 1.0,
+          "color:silver": 0.9984903335571289,
+          "color:transparent": 0.9990941882133484,
+          "color:unknown": 0.9945651888847351,
+          "color:white": 0.9966787695884705,
+          "material:fabric": 0.9954710006713867,
+          "material:glass": 0.9951691031455994,
+          "material:leather": 0.9975845217704773,
+          "material:metal": 0.990338146686554,
+          "material:plastic": 0.9906401038169861,
+          "material:unknown": 0.9969806671142578,
+          "material:wood": 0.9993961453437805,
+          "pattern:striped": 0.9996980428695679,
+          "pattern:textured": 0.9990941882133484,
+          "pattern:unknown": 0.9996980428695679
+        }
+      },
+      "f1": {
+        "overall": 0.9828515648841858,
+        "per_attribute": {
+          "color:black": 0.9905123114585876,
+          "color:blue": 0.9914737939834595,
+          "color:brown": 0.9842271208763123,
+          "color:green": 0.9948186278343201,
+          "color:grey": 0.9838709831237793,
+          "color:red": 1.0,
+          "color:silver": 0.9879518151283264,
+          "color:transparent": 0.9842932224273682,
+          "color:unknown": 0.9829545617103577,
+          "color:white": 0.98591548204422,
+          "material:fabric": 0.9897611141204834,
+          "material:glass": 0.9674796462059021,
+          "material:leather": 0.96875,
+          "material:metal": 0.9744816422462463,
+          "material:plastic": 0.9867464900016785,
+          "material:unknown": 0.9871134161949158,
+          "material:wood": 0.9830508232116699,
+          "pattern:striped": 0.9629629850387573,
+          "pattern:textured": 0.9508196711540222,
+          "pattern:unknown": 0.9998470544815063
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.12031871709378733,
+      "mrr": 0.9779589389257385,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 22,
+    "split": "val",
+    "loss": 2.5125724151078885,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9834790825843811,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9928315281867981,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9664429426193237,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9770353436470032,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9603960514068604,
+          "electronics_mouse": 0.9811320900917053,
+          "footwear_sneakers": 0.9964028596878052,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9795918464660645,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9512633681297302,
+        "per_attribute": {
+          "color:black": 0.9212828278541565,
+          "color:blue": 0.9523809552192688,
+          "color:brown": 0.9611272811889648,
+          "color:green": 0.9659863710403442,
+          "color:grey": 0.9698736667633057,
+          "color:red": 0.9854227304458618,
+          "color:silver": 0.9601554870605469,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8328474164009094,
+          "color:white": 0.9232264161109924,
+          "material:fabric": 0.8911564350128174,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9329445958137512,
+          "material:metal": 0.943634569644928,
+          "material:plastic": 0.8931000828742981,
+          "material:unknown": 0.9135082364082336,
+          "material:wood": 0.9922254681587219,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9961127042770386
+        }
+      },
+      "f1": {
+        "overall": 0.7608600854873657,
+        "per_attribute": {
+          "color:black": 0.8581436276435852,
+          "color:blue": 0.7782805562019348,
+          "color:brown": 0.6153846383094788,
+          "color:green": 0.8108108043670654,
+          "color:grey": 0.6666666865348816,
+          "color:red": 0.7457627058029175,
+          "color:silver": 0.5060241222381592,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6614173054695129,
+          "color:white": 0.7340067625045776,
+          "material:fabric": 0.8048780560493469,
+          "material:glass": 0.9462365508079529,
+          "material:leather": 0.27368420362472534,
+          "material:metal": 0.7339449524879456,
+          "material:plastic": 0.7708333134651184,
+          "material:unknown": 0.8620154857635498,
+          "material:wood": 0.692307710647583,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.998031497001648
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7663503772895006,
+      "mrr": 0.4225967412323947,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 23,
+    "split": "train",
+    "loss": 0.0574211102284959,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9993961453437805,
+        "per_class": {
+          "clothing_wristwatch": 0.997840166091919,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9974874258041382,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9994661808013916,
+        "per_class": {
+          "clothing_wristwatch": 0.998918890953064,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 0.9988802075386047,
+          "footwear_sneakers": 0.9987421631813049,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 0.9986541271209717,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9977807998657227,
+        "per_attribute": {
+          "color:black": 0.9936594367027283,
+          "color:blue": 0.9984903335571289,
+          "color:brown": 0.998792290687561,
+          "color:green": 0.9993961453437805,
+          "color:grey": 0.9981883764266968,
+          "color:red": 1.0,
+          "color:silver": 0.9975845217704773,
+          "color:transparent": 1.0,
+          "color:unknown": 0.9966787695884705,
+          "color:white": 0.9996980428695679,
+          "material:fabric": 0.9975845217704773,
+          "material:glass": 0.9963768124580383,
+          "material:leather": 0.9972826242446899,
+          "material:metal": 0.9951691031455994,
+          "material:plastic": 0.9915459156036377,
+          "material:unknown": 0.9981883764266968,
+          "material:wood": 0.998792290687561,
+          "pattern:striped": 0.9996980428695679,
+          "pattern:textured": 0.9993961453437805,
+          "pattern:unknown": 0.9990941882133484
+        }
+      },
+      "f1": {
+        "overall": 0.9858719706535339,
+        "per_attribute": {
+          "color:black": 0.9900426864624023,
+          "color:blue": 0.993880033493042,
+          "color:brown": 0.9874213933944702,
+          "color:green": 0.9948453903198242,
+          "color:grey": 0.9839572310447693,
+          "color:red": 1.0,
+          "color:silver": 0.9809523820877075,
+          "color:transparent": 1.0,
+          "color:unknown": 0.9895138144493103,
+          "color:white": 0.9987096786499023,
+          "material:fabric": 0.9945205450057983,
+          "material:glass": 0.9754098653793335,
+          "material:leather": 0.9649805426597595,
+          "material:metal": 0.9871175289154053,
+          "material:plastic": 0.9880034327507019,
+          "material:unknown": 0.9922480583190918,
+          "material:wood": 0.9666666388511658,
+          "pattern:striped": 0.9629629850387573,
+          "pattern:textured": 0.9666666388511658,
+          "pattern:unknown": 0.9995410442352295
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.1302339473856244,
+      "mrr": 0.9750402595685876,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 23,
+    "split": "val",
+    "loss": 2.570343498252803,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9825072884559631,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9892473220825195,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9664429426193237,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9758937358856201,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9603960514068604,
+          "electronics_mouse": 0.9629629850387573,
+          "footwear_sneakers": 0.9945945739746094,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9795918464660645,
+          "tableware_mug": 0.9800000190734863,
+          "tableware_waterbottle": 0.9937106966972351,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9514091610908508,
+        "per_attribute": {
+          "color:black": 0.9222546219825745,
+          "color:blue": 0.9533527493476868,
+          "color:brown": 0.9620991349220276,
+          "color:green": 0.9698736667633057,
+          "color:grey": 0.9659863710403442,
+          "color:red": 0.9873663783073425,
+          "color:silver": 0.9640427827835083,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8347910642623901,
+          "color:white": 0.9212828278541565,
+          "material:fabric": 0.8892128467559814,
+          "material:glass": 0.9941691160202026,
+          "material:leather": 0.933916449546814,
+          "material:metal": 0.9455782175064087,
+          "material:plastic": 0.8882409930229187,
+          "material:unknown": 0.909621000289917,
+          "material:wood": 0.9951409101486206,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9961127042770386
+        }
+      },
+      "f1": {
+        "overall": 0.7683111429214478,
+        "per_attribute": {
+          "color:black": 0.8586572408676147,
+          "color:blue": 0.7818182110786438,
+          "color:brown": 0.6213592290878296,
+          "color:green": 0.8287292718887329,
+          "color:grey": 0.6464646458625793,
+          "color:red": 0.7719298005104065,
+          "color:silver": 0.5542168617248535,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6666666865348816,
+          "color:white": 0.7290970087051392,
+          "material:fabric": 0.7985865473747253,
+          "material:glass": 0.9347826242446899,
+          "material:leather": 0.27659574151039124,
+          "material:metal": 0.7383177280426025,
+          "material:plastic": 0.7628865838050842,
+          "material:unknown": 0.8567026257514954,
+          "material:wood": 0.782608687877655,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.998031497001648
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.7737382994448825,
+      "mrr": 0.4233699495984699,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 24,
+    "split": "train",
+    "loss": 0.05578804896145627,
+    "classification": {
+      "accuracy": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9981129169464111,
+        "per_attribute": {
+          "color:black": 0.9966787695884705,
+          "color:blue": 0.9984903335571289,
+          "color:brown": 0.9978864789009094,
+          "color:green": 0.9996980428695679,
+          "color:grey": 0.9963768124580383,
+          "color:red": 0.9996980428695679,
+          "color:silver": 0.9984903335571289,
+          "color:transparent": 1.0,
+          "color:unknown": 0.9972826242446899,
+          "color:white": 0.9981883764266968,
+          "material:fabric": 0.9966787695884705,
+          "material:glass": 0.9975845217704773,
+          "material:leather": 0.9990941882133484,
+          "material:metal": 0.9957729578018188,
+          "material:plastic": 0.9942632913589478,
+          "material:unknown": 0.9984903335571289,
+          "material:wood": 0.9990941882133484,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9993961453437805,
+          "pattern:unknown": 0.9990941882133484
+        }
+      },
+      "f1": {
+        "overall": 0.9889466166496277,
+        "per_attribute": {
+          "color:black": 0.9947842359542847,
+          "color:blue": 0.993880033493042,
+          "color:brown": 0.9781931638717651,
+          "color:green": 0.9974160194396973,
+          "color:grey": 0.9682539701461792,
+          "color:red": 0.9956331849098206,
+          "color:silver": 0.9880095720291138,
+          "color:transparent": 1.0,
+          "color:unknown": 0.9914203882217407,
+          "color:white": 0.9922680258750916,
+          "material:fabric": 0.9924606084823608,
+          "material:glass": 0.9834710955619812,
+          "material:leather": 0.9880478382110596,
+          "material:metal": 0.9886914491653442,
+          "material:plastic": 0.9918907284736633,
+          "material:unknown": 0.993514895439148,
+          "material:wood": 0.9747899174690247,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9666666388511658,
+          "pattern:unknown": 0.9995410442352295
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.12276943413099804,
+      "mrr": 0.9771034636935174,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 24,
+    "split": "val",
+    "loss": 2.5683667019835017,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9825072884559631,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9892473220825195,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9697986841201782,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9743819832801819,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.96517413854599,
+          "electronics_mouse": 0.9629629850387573,
+          "footwear_sneakers": 0.9945945739746094,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9829931855201721,
+          "tableware_mug": 0.9702970385551453,
+          "tableware_waterbottle": 0.9873417615890503,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9826589822769165
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9511175751686096,
+        "per_attribute": {
+          "color:black": 0.9154518842697144,
+          "color:blue": 0.9446064233779907,
+          "color:brown": 0.9620991349220276,
+          "color:green": 0.967930018901825,
+          "color:grey": 0.9747327566146851,
+          "color:red": 0.9863945841789246,
+          "color:silver": 0.9620991349220276,
+          "color:transparent": 0.999028205871582,
+          "color:unknown": 0.8406219482421875,
+          "color:white": 0.9212828278541565,
+          "material:fabric": 0.8862974047660828,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9319728016853333,
+          "material:metal": 0.9465500712394714,
+          "material:plastic": 0.8931000828742981,
+          "material:unknown": 0.9115646481513977,
+          "material:wood": 0.9902818202972412,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9961127042770386
+        }
+      },
+      "f1": {
+        "overall": 0.7626601457595825,
+        "per_attribute": {
+          "color:black": 0.8497409224510193,
+          "color:blue": 0.751091718673706,
+          "color:brown": 0.6213592290878296,
+          "color:green": 0.8196721076965332,
+          "color:grey": 0.7111111283302307,
+          "color:red": 0.7586206793785095,
+          "color:silver": 0.5185185074806213,
+          "color:transparent": 0.95652174949646,
+          "color:unknown": 0.6680161952972412,
+          "color:white": 0.7290970087051392,
+          "material:fabric": 0.7972270250320435,
+          "material:glass": 0.9462365508079529,
+          "material:leather": 0.2708333432674408,
+          "material:metal": 0.7441860437393188,
+          "material:plastic": 0.7708333134651184,
+          "material:unknown": 0.8571428656578064,
+          "material:wood": 0.6428571343421936,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.998031497001648
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.768326603868149,
+      "mrr": 0.42381173412816053,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 25,
+    "split": "train",
+    "loss": 0.05533185061337291,
+    "classification": {
+      "accuracy": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 1.0,
+        "per_class": {
+          "clothing_wristwatch": 1.0,
+          "electronics_keyboard": 1.0,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 1.0,
+          "stationery_calculator": 1.0,
+          "stationery_notebook": 1.0,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9977807998657227,
+        "per_attribute": {
+          "color:black": 0.9954710006713867,
+          "color:blue": 0.9981883764266968,
+          "color:brown": 0.9981883764266968,
+          "color:green": 0.9993961453437805,
+          "color:grey": 0.9990941882133484,
+          "color:red": 0.9996980428695679,
+          "color:silver": 0.9972826242446899,
+          "color:transparent": 0.9990941882133484,
+          "color:unknown": 0.9978864789009094,
+          "color:white": 0.9972826242446899,
+          "material:fabric": 0.9984903335571289,
+          "material:glass": 0.9972826242446899,
+          "material:leather": 0.9990941882133484,
+          "material:metal": 0.9933574795722961,
+          "material:plastic": 0.9924516677856445,
+          "material:unknown": 0.9981883764266968,
+          "material:wood": 0.9981883764266968,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9990941882133484,
+          "pattern:unknown": 0.9978864789009094
+        }
+      },
+      "f1": {
+        "overall": 0.9862176179885864,
+        "per_attribute": {
+          "color:black": 0.9928673505783081,
+          "color:blue": 0.9926650524139404,
+          "color:brown": 0.981249988079071,
+          "color:green": 0.9948453903198242,
+          "color:grey": 0.9919137358665466,
+          "color:red": 0.9956331849098206,
+          "color:silver": 0.978622317314148,
+          "color:transparent": 0.9842932224273682,
+          "color:unknown": 0.9932757019996643,
+          "color:white": 0.9884763360023499,
+          "material:fabric": 0.9965588450431824,
+          "material:glass": 0.9814432859420776,
+          "material:leather": 0.9880478382110596,
+          "material:metal": 0.9822866320610046,
+          "material:plastic": 0.9893571734428406,
+          "material:unknown": 0.9922480583190918,
+          "material:wood": 0.9508196711540222,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9508196711540222,
+          "pattern:unknown": 0.9989284873008728
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 0.1192561807155897,
+      "mrr": 0.9782960967741151,
+      "recall_at_k": {}
+    }
+  },
+  {
+    "epoch": 25,
+    "split": "val",
+    "loss": 2.5473359344188626,
+    "classification": {
+      "accuracy": {
+        "overall": 0.9844509363174438,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9700000286102295,
+          "electronics_mouse": 1.0,
+          "footwear_sneakers": 0.9964157938957214,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9664429426193237,
+          "tableware_mug": 1.0,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 1.0
+        }
+      },
+      "f1": {
+        "overall": 0.9779936075210571,
+        "per_class": {
+          "clothing_wristwatch": 0.98591548204422,
+          "electronics_keyboard": 0.9603960514068604,
+          "electronics_mouse": 0.9719626307487488,
+          "footwear_sneakers": 0.9982046484947205,
+          "stationery_calculator": 0.9375,
+          "stationery_notebook": 0.9795918464660645,
+          "tableware_mug": 0.9800000190734863,
+          "tableware_waterbottle": 1.0,
+          "tools_screwdriver": 0.0,
+          "travel_backpack": 0.9883720874786377
+        }
+      }
+    },
+    "attributes": {
+      "accuracy": {
+        "overall": 0.9512633681297302,
+        "per_attribute": {
+          "color:black": 0.9193391799926758,
+          "color:blue": 0.9494655132293701,
+          "color:brown": 0.9620991349220276,
+          "color:green": 0.9698736667633057,
+          "color:grey": 0.9708454608917236,
+          "color:red": 0.9873663783073425,
+          "color:silver": 0.9620991349220276,
+          "color:transparent": 0.9980563521385193,
+          "color:unknown": 0.8415938019752502,
+          "color:white": 0.9154518842697144,
+          "material:fabric": 0.8911564350128174,
+          "material:glass": 0.9951409101486206,
+          "material:leather": 0.9319728016853333,
+          "material:metal": 0.943634569644928,
+          "material:plastic": 0.8921282887458801,
+          "material:unknown": 0.910592794418335,
+          "material:wood": 0.991253674030304,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.9970845580101013,
+          "pattern:unknown": 0.9961127042770386
+        }
+      },
+      "f1": {
+        "overall": 0.7624245882034302,
+        "per_attribute": {
+          "color:black": 0.8556521534919739,
+          "color:blue": 0.7678571343421936,
+          "color:brown": 0.6213592290878296,
+          "color:green": 0.8287292718887329,
+          "color:grey": 0.6739130616188049,
+          "color:red": 0.7719298005104065,
+          "color:silver": 0.5301204919815063,
+          "color:transparent": 0.9166666865348816,
+          "color:unknown": 0.6746506690979004,
+          "color:white": 0.7166123986244202,
+          "material:fabric": 0.8035087585449219,
+          "material:glass": 0.9462365508079529,
+          "material:leather": 0.2708333432674408,
+          "material:metal": 0.7363636493682861,
+          "material:plastic": 0.7692307829856873,
+          "material:unknown": 0.8580247163772583,
+          "material:wood": 0.6666666865348816,
+          "pattern:striped": 1.0,
+          "pattern:textured": 0.8421052694320679,
+          "pattern:unknown": 0.998031497001648
+        }
+      }
+    },
+    "retrieval": {
+      "loss": 2.764309791364753,
+      "mrr": 0.42432929938921543,
+      "recall_at_k": {}
+    }
+  }
+]

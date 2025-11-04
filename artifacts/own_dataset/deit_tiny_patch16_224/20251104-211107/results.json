@@ -1,0 +1,26 @@
+{
+  "run_id": "20251104-211107",
+  "best_epoch": 23,
+  "checkpoint_score": 0.6954852789640427,
+  "training_seconds": 33.21060263298568,
+  "train": {
+    "loss": 0.09162909679942662,
+    "classification_accuracy": 1.0,
+    "classification_f1": 1.0,
+    "attribute_accuracy": 1.0,
+    "attribute_f1": 0.8500000238418579,
+    "retrieval_loss": 0.5967771637336248,
+    "retrieval_mrr": 0.7941111289130317,
+    "retrieval_recall_at_k": {}
+  },
+  "val": {
+    "loss": 2.6039601071675618,
+    "classification_accuracy": 0.95333331823349,
+    "classification_f1": 0.952827513217926,
+    "attribute_accuracy": 0.9043333530426025,
+    "attribute_f1": 0.4381430447101593,
+    "retrieval_loss": 2.569717674255371,
+    "retrieval_mrr": 0.35008824030558267,
+    "retrieval_recall_at_k": {}
+  }
+}

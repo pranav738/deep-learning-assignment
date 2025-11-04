@@ -1,0 +1,31 @@
+{
+  "project_root": "/home/sasank/deep-learning-assignment",
+  "experiment_tag": "pooled_dataset",
+  "batch_size": 32,
+  "num_epochs": 25,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "num_workers": 4,
+  "pin_memory": true,
+  "backbone_name": "deit_tiny_patch16_224",
+  "freeze_backbone_epochs": 2,
+  "text_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_dim": 256,
+  "freeze_text_backbone": true,
+  "attr_loss_weight": 1.0,
+  "attr_threshold": 0.5,
+  "grad_clip_norm": 1.0,
+  "retrieval_loss_weight": 0.1,
+  "retrieval_temperature": 0.07,
+  "retrieval_recall_at_k": [],
+  "checkpoint_f1_weights": {
+    "classification": 0.5,
+    "attributes": 0.5
+  },
+  "scheduler": {
+    "type": "cosine",
+    "eta_min": 1e-05
+  },
+  "seed": 1337,
+  "run_id": "20251104-221606"
+}

@@ -32,7 +32,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 CONFIG: Dict[str, Any] = {
     "project_root": PROJECT_ROOT,
-    "experiment_tag": "own_dataset",
+    "experiment_tag": "pooled_dataset",
     
     "batch_size": 32,
     "num_epochs": 25,
